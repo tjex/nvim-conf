@@ -20,3 +20,4 @@ require("lazy").setup({ import = "tjex/plugins" }, {
 	},
 	dev = { path = "~/.local/plugins" },
 })
+
