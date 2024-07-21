@@ -9,10 +9,11 @@ return {
 		key.nmap({
 			"<c-ESC>",
 			function()
-				vim.cmd(":FocusSplitNicely")
-				vim.cmd(":FocusSplitNicely")
+				vim.cmd(":vnew")
+				vim.cmd(":vnew")
+				vim.cmd(":wincmd H")
+				vim.cmd(":wincmd l")
 				vim.cmd(":FocusToggle")
-				vim.cmd(":wincmd h")
 			end,
 		})
 	end,
