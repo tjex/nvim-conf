@@ -1,0 +1,12 @@
+image: alpine/edge
+secrets:
+  - e9000e44-8b2a-453c-b841-ac28a0688a21
+environment:
+  REPO: nvim
+  GH_USER: tjex
+tasks:
+  - push-to-github: |
+      cd ~/"${REPO}"
+      git config --global credential.helper store
+      git push --mirror "https://github.com/${GH_USER}/${REPO}"
+
