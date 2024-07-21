@@ -8,5 +8,5 @@ tasks:
   - push-to-github: |
       cd ~/"${REPO}"
       git config --global credential.helper store
-      git push --mirror "https://github.com/${GH_USER}/${REPO}"
+      git push --mirror "git@github.com:/${GH_USER}/${REPO}.git"
 
