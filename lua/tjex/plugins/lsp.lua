@@ -72,6 +72,16 @@ return {
 					on_attach = lsp_attach,
 				})
 			end,
+			["clangd"] = function()
+				require("lspconfig").clangd.setup({
+					on_attach = lsp_attach,
+					name = "clangd",
+					cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
+					initialization_options = {
+						fallback_flags = { "-std=c++17" },
+					},
+				})
+			end,
 			["cssls"] = function()
 				require("lspconfig").cssls.setup({
 					on_attach = lsp_attach,
