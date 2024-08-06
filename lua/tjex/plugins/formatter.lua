@@ -29,10 +29,28 @@ return {
 					require("formatter.filetypes.javascript").eslint_d,
 				},
 				css = {
-					require("formatter.filetypes.css").prettierd,
+					function()
+						return {
+							exe = "prettierd",
+							args = {
+								util.escape_path(util.get_current_buffer_file_path()),
+								"--tab-width=4",
+							},
+							stdin = true,
+						}
+					end,
 				},
 				scss = {
-					require("formatter.filetypes.css").prettierd,
+					function()
+						return {
+							exe = "prettierd",
+							args = {
+								util.escape_path(util.get_current_buffer_file_path()),
+								"--tab-width=4",
+							},
+							stdin = true,
+						}
+					end,
 				},
 				html = {
 					require("formatter.filetypes.html").prettierd,
