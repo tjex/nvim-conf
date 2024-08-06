@@ -10,11 +10,15 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
+		local types = require("cmp.types")
 		local lspkind = require("lspkind")
 		require("cmp").setup({
-			completion = {
-				autocomplete = false,
-			},
+			-- completion = {
+			-- 	autocomplete = {
+			-- 		types.cmp.TriggerEvent.TextChanged,
+			-- 	},
+			-- 	keyword_length = 3,
+			-- },
 			snippet = {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body)
@@ -34,11 +38,19 @@ return {
 			}),
 
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp", keyword_length = 6 },
+				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "nvim_lua", keyword_length = 6 },
+				-- { name = "nvim_lua", keyword_length = 6 },
 				{ name = "path" },
-				-- { name = "buffer", keyword_length = 8},
+				{ name = "buffer" },
+			}),
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				-- { name = "nvim_lua", keyword_length = 6 },
+				{ name = "path" },
+			}, {
+				{ name = "buffer" },
 			}),
 
 			formatting = {
