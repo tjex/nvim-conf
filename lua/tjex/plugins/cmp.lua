@@ -13,12 +13,12 @@ return {
 		local types = require("cmp.types")
 		local lspkind = require("lspkind")
 		require("cmp").setup({
-			-- completion = {
-			-- 	autocomplete = {
-			-- 		types.cmp.TriggerEvent.TextChanged,
-			-- 	},
-			-- 	keyword_length = 3,
-			-- },
+			completion = {
+				autocomplete = {
+					-- types.cmp.TriggerEvent.TextChanged,
+				},
+				keyword_length = 3,
+			},
 			snippet = {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body)
@@ -42,15 +42,6 @@ return {
 				{ name = "luasnip" },
 				-- { name = "nvim_lua", keyword_length = 6 },
 				{ name = "path" },
-				{ name = "buffer" },
-			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				-- { name = "nvim_lua", keyword_length = 6 },
-				{ name = "path" },
-			}, {
-				{ name = "buffer" },
 			}),
 
 			formatting = {
@@ -59,14 +50,23 @@ return {
 					maxwidth = 50,
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					menu = {
-						buffer = "[buf]",
 						nvim_lsp = "[LSP]",
 						luasnip = "[snip]",
+						buffer = "[buf]",
 						path = "[path]",
 						nvim_lua = "[api]",
 					},
 				}),
 			},
+		})
+		require("cmp").setup.filetype("markdown", {
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				{ name = "path" },
+			}, {
+				{ name = "buffer" },
+			}),
 		})
 	end,
 }

@@ -41,6 +41,7 @@ key.nmap({ "<C-h>", "<C-w>h" })
 key.nmap({ "<C-j>", "<C-w>j" })
 key.nmap({ "<C-k>", "<C-w>k" })
 key.nmap({ "<C-l>", "<C-w>l" })
+key.nmap({ "<C-w>r", "<C-w>r<C-w>h" })
 
 -- tabs
 key.nmap({ "gh", ":tabp<CR>" }) -- previous tab

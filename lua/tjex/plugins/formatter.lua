@@ -28,6 +28,9 @@ return {
 				javascript = {
 					require("formatter.filetypes.javascript").eslint_d,
 				},
+				python = {
+					require("formatter.filetypes.javascript").ruff,
+				},
 				css = {
 					function()
 						return {

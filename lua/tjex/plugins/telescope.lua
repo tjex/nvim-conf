@@ -105,6 +105,7 @@ return {
 				bibtex = {
 					global_files = { "~/zotero/my_library.bib" },
 					search_keys = { "title", "author", "label" },
+					context = true,
 				},
 			},
 		})
