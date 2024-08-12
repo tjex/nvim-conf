@@ -6,6 +6,7 @@ return {
 		local util = require("formatter.util")
 		local bufopts = { noremap = true, silent = true }
 		vim.keymap.set({ "v", "n" }, "<leader>f", ":FormatWrite<cr>", bufopts)
+		vim.keymap.set({ "v", "n" }, "<leader>uw", ":Fmt unwrap<cr>", bufopts)
 
 		-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 		require("formatter").setup({
