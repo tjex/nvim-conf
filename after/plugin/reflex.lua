@@ -1,4 +1,4 @@
--- reflex color scheme by me (tjex)
+-- reflex color scheme by Tillman Jex (https://tjex.net)
 
 -- don't color backgrounds of floating windows (and backgrounds?..)
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
