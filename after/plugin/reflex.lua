@@ -140,9 +140,6 @@ Group.new("constant", c.gray_0)
 Group.new("@constant.builtin", c.gray_0)
 Group.new("constant.builtin", c.gray_0)
 
-Group.new("@constant.macro", c.quart)
-Group.new("constant.macro", c.quart)
-
 Group.new("@constructor", c.gray_0)
 Group.new("constructor", c.gray_0)
 
@@ -170,9 +167,6 @@ Group.new("function.builtin", c.gray_0)
 Group.new("@function.call", c.gray_0)
 Group.new("function.call", c.gray_0)
 
-Group.new("@function.macro", c.quart)
-Group.new("function.macro", c.quart)
-
 Group.new("@include", c.gray_4)
 Group.new("include", c.gray_4)
 
@@ -191,8 +185,12 @@ Group.new("keyword.return", c.gray_0)
 Group.new("@label", c.gray_0)
 Group.new("label", c.gray_0)
 
-Group.new("@macro", c.quart)
-Group.new("macro", c.quart)
+Group.new("@constant.macro", c.gray_5)
+Group.new("constant.macro", c.gray_5)
+Group.new("@function.macro", c.gray_5)
+Group.new("function.macro", c.gray_5)
+Group.new("@macro", c.gray_5)
+Group.new("macro", c.gray_5)
 
 Group.new("@method", c.quart)
 Group.new("method", c.quart)

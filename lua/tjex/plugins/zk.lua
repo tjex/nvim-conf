@@ -1,7 +1,7 @@
 return {
 	"zk-org/zk-nvim",
-	-- dir = "~/.local/src/zk-org/zk-nvim.git/hoofcushion/",
-	-- name = "zk-nvim-local",
+	-- dir = "~/.local/src/zk-org/nvim/shfattig/",
+	-- name = "zk-shfattig",
 
 	event = "BufEnter *.md",
 	config = function()

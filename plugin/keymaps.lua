@@ -10,8 +10,8 @@ key.imap({ "KJ", "<ESC><Right>" })
 key.imap({ "<c-l>", "<Nop>" }) -- used for cmp
 
 -- file operations
-key.nmap({ "W", ":w<CR>" })
 key.nmap({ "<leader>cd", ":cd %:h<CR>" })
+key.nmap({ "W", ":w<cr>" })
 
 -- text operations
 key.nmap({ "˚", "mzJ`z" }) -- append below to current line and leave cursor where it is
@@ -42,6 +42,8 @@ key.nmap({ "<C-j>", "<C-w>j" })
 key.nmap({ "<C-k>", "<C-w>k" })
 key.nmap({ "<C-l>", "<C-w>l" })
 key.nmap({ "<C-w>r", "<C-w>r<C-w>h" })
+key.nmap({ "H", "<C-w>h<C-w>x<C-w>l" })
+key.nmap({ "L", "<C-w>x" })
 
 -- tabs
 key.nmap({ "gh", ":tabp<CR>" }) -- previous tab
