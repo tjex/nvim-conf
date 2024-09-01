@@ -63,17 +63,7 @@ return {
 					require("formatter.filetypes.json").prettierd,
 				},
 				markdown = {
-					function()
-						return {
-							exe = "prettierd",
-							args = {
-								util.escape_path(util.get_current_buffer_file_path()),
-								"--print-width=80",
-								"--prose-wrap=always",
-							},
-							stdin = true,
-						}
-					end,
+					require("formatter.filetypes.json").prettierd,
 				},
 				-- Unwrap prose in markdown. Execute via `:Fmt unwrap`, see user command.
 				unwrap = {
