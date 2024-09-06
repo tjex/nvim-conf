@@ -71,6 +71,8 @@ return {
 				["gx"] = "actions.open_external",
 				["g."] = "actions.toggle_hidden",
 				["g\\"] = "actions.toggle_trash",
+				["gy"] = "actions.yank_entry",
+				["gl"] = "actions.send_to_qflist",
 			},
 			-- Configuration for the floating window in oil.open_float
 			float = {
@@ -82,11 +84,23 @@ return {
 				win_options = {
 					winblend = 0,
 				},
+				preview_split = "right",
+
 				-- This is the config that will be passed to nvim_open_win.
 				-- Change values here to customize the layout
 				override = function(conf)
 					return conf
 				end,
+			},
+			preview = {
+				max_width = 0.9,
+				max_height = 0.9,
+				border = "rounded",
+				win_options = {
+					winblend = 0,
+				},
+				-- Whether the preview window is automatically updated when the cursor is moved
+				update_on_cursor_moved = true,
 			},
 		})
 	end,

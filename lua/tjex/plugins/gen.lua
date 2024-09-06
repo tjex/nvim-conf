@@ -58,7 +58,7 @@ return {
 			model = "deepseek-coder:6.7b",
 			prompt = "Optimize the following code, and explain concisely why the changes were made. Output the optimized code after your explanation:\n\n```$filetype\n$text\n```",
 			replace = true,
-			extract = "```$filetype\n(.-)```",
+			extract = "```$filetype\n(.-)\n```",
 		}
 
 		prompt["code_question"] = {
@@ -67,22 +67,17 @@ return {
 			replace = false,
 		}
 
-		prompt["code_command"] = {
-			model = "deepseek-coder:6.7b",
-			prompt = "You are an expert programmer whose purpose it is to assist me. Take your time to think. An excellent yet simple answer to the question is preferred over a fast one. $input:\n\n```$filetype\n$text\n```",
-			replace = false,
-		}
-
 		-- writing and general text
+
+		prompt["reduce_word_count"] = {
+			prompt = "Reduce the word count of the following text, but without losing the quality or clarity of the underlying message or meaning:\n$text",
+			replace = true,
+		}
 
 		prompt["improve_writing"] = {
 			prompt = "Improve the following text by making it clearer and easier to understand: $text",
 			replace = true,
 			extract = '"(.-)"',
-		}
-
-		prompt["explain_text"] = {
-			prompt = "I'm finding it hard to understand some text. Summarise it so I can better understand. Take a breath and think openly. Here is the text: $text",
 		}
 
 		prompt["summarise_text"] = {
