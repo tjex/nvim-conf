@@ -10,7 +10,7 @@ return {
 		local code_model = "deepseek-coder:33b"
 
 		require("gen").setup({
-			model = "llama3",
+			model = "llama3.1",
 			host = "localhost",
 			port = "11434",
 			retry_map = "<c-r>", -- set keymap to re-send the current prompt.
