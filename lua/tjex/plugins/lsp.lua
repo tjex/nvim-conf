@@ -15,7 +15,6 @@ return {
 			"pyright",
 			"stylelint_lsp",
 			"astro",
-			"pyright",
 			"jsonls",
 		}
 
@@ -60,9 +59,6 @@ return {
 
 			-- see ./formatter.lua for formatting provider logic
 			client.server_capabilities.document_formatting = true
-			-- why was this disabled? Seems to be a good thing...
-			-- was something from chris@themachine
-			-- client.server_capabilities.semanticTokensProvider = nil
 			require("cmp_nvim_lsp").default_capabilities()
 		end
 

@@ -30,3 +30,6 @@ usr_cmd("WorktreeCreate", ":lua require('telescope').extensions.git_worktree.cre
 usr_cmd("Worktree", ":lua require('telescope').extensions.git_worktree.git_worktrees()", {})
 usr_cmd("Rd", ":lua require('persistence').load()<cr>", {})
 usr_cmd("Rs", ":lua require('persistence').load({last = true})<cr>", {})
+
+-- gen
+usr_cmd("GenSelectModel", require("gen").select_model, {})

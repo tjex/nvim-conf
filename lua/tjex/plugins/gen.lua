@@ -4,27 +4,28 @@ return {
 	cmd = "Gen",
 
 	config = function()
-		local usr_cmd = vim.api.nvim_create_user_command
-
-		usr_cmd("GenSelectModel", require("gen").select_model, {})
-
 		require("gen").prompts = {} -- clear defaults first
 		local prompt = require("gen").prompts
 
+		local code_model = "deepseek-coder:33b"
+
 		require("gen").setup({
-			model = "mixtral",
+			model = "llama3",
 			host = "localhost",
 			port = "11434",
+			retry_map = "<c-r>", -- set keymap to re-send the current prompt.
+			accept_map = "<c-cr>", -- accept for replacement.
 			display_mode = "split",
 			show_prompt = true,
 			show_model = true,
 			quit_map = "q",
 			no_auto_close = true,
-			init = function()
+			init = function(options)
 				pcall(io.popen, "ollama serve > /dev/null 2>&1 &")
 			end,
 			-- Function to initialize Ollama
 			command = function(options)
+				local body = { model = options.model, stream = true }
 				return "curl --silent --no-buffer -X POST http://"
 					.. options.host
 					.. ":"
@@ -42,41 +43,40 @@ return {
 		-- code
 
 		prompt["explain_code"] = {
-			model = "deepseek-coder:6.7b",
-			prompt = "Explain how the following code works:\n\n```$filetype\n$text\n```",
-			replace = false,
+			model = code_model,
+			prompt = "Explain how the following code works:\n```$filetype\n$text```",
 		}
 
 		prompt["fix_code"] = {
-			model = "deepseek-coder:6.7b",
-			prompt = "The following code is buggy, fix it. Output ONLY the fixed code. DO NOT include anything except the specific code required to fix this problem:\n\n```$filetype\n$text\n```",
-			replace = true,
+			model = code_model,
+			prompt = "The following code is buggy, fix it. Output ONLY the fixed code. DO NOT include anything except the specific code required to fix this problem:\n```$filetype\n$text```",
+			replace = false,
 			extract = "```$filetype\n(.-)```",
 		}
 
 		prompt["optimize_code"] = {
-			model = "deepseek-coder:6.7b",
-			prompt = "Optimize the following code, and explain concisely why the changes were made. Output the optimized code after your explanation:\n\n```$filetype\n$text\n```",
-			replace = true,
-			extract = "```$filetype\n(.-)\n```",
+			model = code_model,
+			prompt = "Optimize the following code, and explain concisely why the changes were made. Output the optimized code after your explanation:\n```$filetype\n$text```",
+			replace = false,
+			extract = "```$filetype\n(.-)```",
 		}
 
 		prompt["code_question"] = {
-			model = "deepseek-coder:6.7b",
-			prompt = "I want to ask you a question about some code. $input:\n\n```$filetype\n$text\n```",
-			replace = false,
+			model = code_model,
+			prompt = "I want to ask you a question about some code. $input:\n\n```$filetype\n$text```",
 		}
 
 		-- writing and general text
 
 		prompt["reduce_word_count"] = {
-			prompt = "Reduce the word count of the following text, but without losing the quality or clarity of the underlying message or meaning:\n$text",
-			replace = true,
+			prompt = "Reduce the word count of the following text, but without losing the quality or clarity of the underlying message or meaning:\n'$text'",
+			replace = false,
+			extract = '"(.-)"',
 		}
 
 		prompt["improve_writing"] = {
-			prompt = "Improve the following text by making it clearer and easier to understand: $text",
-			replace = true,
+			prompt = "Improve the following text by making it clearer. You can increase the word count if necessary. Do not output any other text than the improved text that should replace the input text. Here is the text:\n'$text'",
+			replace = false,
 			extract = '"(.-)"',
 		}
 
