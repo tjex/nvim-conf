@@ -6,13 +6,23 @@ local usr_cmd = vim.api.nvim_create_user_command
 local funcs = require("tjex.funcs")
 
 -- run a file on write and print its output to designated buf
-usr_cmd("AutoRun", function()
-	print("AutoRun starts now...")
-	-- local bufnr = vim.api.nvim_get_current_buf()
+usr_cmd("AutoRunOut", function()
 	local bufnr = vim.fn.input("Bufnr: ")
 	local pattern = vim.fn.input("Pattern: ")
 	local command = vim.split(vim.fn.input("Command: "), " ")
 	funcs.attach_to_buffer(tonumber(bufnr), pattern, command)
+end, {})
+
+usr_cmd("AutoRun", function()
+	local pattern = vim.fn.input("Pattern: ")
+	local command = vim.split(vim.fn.input("Command: "), " ")
+	vim.api.nvim_create_autocmd("BufWritePost", {
+		group = vim.api.nvim_create_augroup("tjex", { clear = true }),
+		pattern = pattern,
+		callback = function()
+			vim.fn.jobstart(command)
+		end,
+	})
 end, {})
 
 usr_cmd("Date", "norm! i" .. vim.fn.strftime("%Y-%m-%d"), {})
