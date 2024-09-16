@@ -11,7 +11,7 @@ key.imap({ "<c-l>", "<Nop>" }) -- used for cmp
 
 -- file operations
 key.nmap({ "<leader>cd", ":cd %:h<CR>" })
-key.nmap({ "W", ":w<cr>" })
+key.nmap({ "<leader>w", ":w<cr>" })
 
 -- text operations
 key.nmap({ "˚", "mzJ`z" }) -- append below to current line and leave cursor where it is
