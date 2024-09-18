@@ -17,6 +17,7 @@ Color.new("bground", "#1a1c23")
 Color.new("bg_lighter", "#202436")
 Color.new("bg_light", "#1b1e2d")
 Color.new("bg_text", "#525d8a")
+Color.new("white", "#dedede")
 
 Color.new("primary", "#647f9d") -- blue_1
 Color.new("secondary", "#7F718E") -- purple
@@ -32,7 +33,7 @@ Color.new("blue_2", "#6f88a6")
 Color.new("black", "#1a1a1a")
 Color.new("gray_0", "#b4b4b4") -- brightest
 Color.new("gray_1", "#bcbcbc")
-Color.new("gray_2", "#aeaeae") -- regular text
+Color.new("text", "#aeaeae") -- regular text
 Color.new("gray_3", "#969696")
 Color.new("gray_4", "#737373")
 Color.new("gray_5", "#585858")
@@ -70,14 +71,14 @@ Group.new("ErrorMsg", c.diag_error, nil)
 Group.new("Conceal", c.gray_5)
 Group.new("Cursor", nil) -- set by term
 Group.new("ColorColumn", nil, nil)
-Group.new("CursorLineNr", c.gray_2, nil)
+Group.new("CursorLineNr", c.text, nil)
 Group.new("CursorLine", nil, nil)
 Group.new("Directory", c.gray_1)
 Group.new("DiffAdded", c.green)
 Group.new("DiffRemoved", c.quart)
 Group.new("DiffFile", c.white, nil, s.underline)
-Group.new("DiffOldFile", c.gray_2)
-Group.new("DiffNewFile", c.gray_2)
+Group.new("DiffOldFile", c.text)
+Group.new("DiffNewFile", c.text)
 Group.new("DiffAdd", c.primary)
 Group.new("DiffChange", c.gray_0)
 Group.new("DiffDelete", c.secondary)
@@ -103,7 +104,7 @@ Group.new("PmenuSel", c.black, g.hl_bg_1)
 Group.new("PmenuSbar", c.primary, c.gray_6)
 Group.new("PmenuThumb", c.primary, c.gray_5)
 Group.new("Question", c.gray_0, c.gray_6)
-Group.new("qffilename", c.gray_2)
+Group.new("qffilename", c.text)
 Group.new("QuickFixLine", c.white, nil)
 Group.new("Search", c.black, g.hl_bg_1)
 Group.new("IncSearch", c.black, g.hl_bg_1)
@@ -204,8 +205,8 @@ Group.new("method.call", c.quart)
 Group.new("@namespace", c.gray_0)
 Group.new("namespace", c.gray_0)
 
-Group.new("@Normal", c.gray_2, nil)
-Group.new("Normal", c.gray_2, nil)
+Group.new("@Normal", c.text, nil)
+Group.new("Normal", c.text, nil)
 
 Group.new("@none", c.gray_1)
 Group.new("none", c.gray_1)
@@ -264,8 +265,8 @@ Group.new("structure", c.gray_0)
 Group.new("@tag", c.gray_4)
 Group.new("tag", c.gray_4)
 
-Group.new("@tag.attribute", c.gray_2)
-Group.new("tag.attribute", c.gray_2)
+Group.new("@tag.attribute", c.text)
+Group.new("tag.attribute", c.text)
 
 Group.new("@tag.delimiter", c.gray_1)
 Group.new("tag.delimiter", c.gray_1)
@@ -318,7 +319,7 @@ Group.new("underlined", c.primary, nil, nil)
 -- Oil
 
 Group.new("OilDir", c.primary, nil)
-Group.new("OilDirIcon", c.gray_2, nil)
+Group.new("OilDirIcon", c.text, nil)
 
 -- NvimTree
 Group.new("NvimTreeOpenedFolderName", c.primary)
@@ -346,13 +347,20 @@ Group.new("NvimTreeGitNew", c.gray_4)
 Group.new("NvimTreeGitDeleted", c.gray_4)
 Group.new("NvimTreeGitIgnored", c.gray_4)
 
--- Telescope
--- https://github.com/nvim-telescope/telescope.nvim/blob/master/plugin/telescope.lua
-Group.new("TelescopeTitle", c.gray_0)
-Group.new("TelescopeBorder", g.border_1)
-Group.new("TelescopeSearch", nil)
-Group.new("TelescopeMatching", c.white)
-Group.new("TelescopeSelection", c.white, nil, s.italic)
+-- fzf-lua
+Group.new("FzfLuaFzfMatch", c.white)
+Group.new("FzfLuaBorder", c.primary)
+Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
+Group.new("FzfLuaHeaderText", c.quart)
+Group.new("FzfLuaHeaderBind", c.text)
+Group.new("FzfLuaBufferName", c.primary)
+Group.new("FzfLuaBufFlagCur", c.gray_3)
+Group.new("FzfLuaBufFlagAlt", c.gray_3)
+Group.new("FzfLuaLiveSim", c.quart)
+Group.new("FzfLuaPathLineNr", c.gray_4)
+Group.new("FzfLuaBufNr", c.quart)
+Group.new("FzfLuaTabTitle", c.primary)
+Group.new("FzfLuaTabMarker", c.quart)
 
 -- blankline
 -- these hl g don't seem to work (2023-09-29)
