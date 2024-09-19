@@ -3,8 +3,11 @@ return {
 	version = "*",
 	init = function()
 		local key = require("tjex.keymap")
-		require("focus").setup({})
 
+		key.nmap({ "<c-h>", "<cmd>FocusSplitLeft<cr>" })
+		key.nmap({ "<c-j>", "<cmd>FocusSplitDown<cr>" })
+		key.nmap({ "<c-k>", "<cmd>FocusSplitUp<cr>" })
+		key.nmap({ "<c-l>", "<cmd>FocusSplitRight<cr>" })
 		key.nmap({ "<c-b>", "<cmd>FocusToggle<cr>" })
 		key.nmap({
 			"<c-ESC>",
@@ -15,6 +18,11 @@ return {
 				vim.cmd(":wincmd l")
 				vim.cmd(":FocusToggle")
 			end,
+		})
+	end,
+	config = function()
+		require("focus").setup({
+			autoresize = { enable = false },
 		})
 	end,
 }

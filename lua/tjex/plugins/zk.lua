@@ -1,7 +1,7 @@
 return {
-	"zk-org/zk-nvim",
-	-- dir = "~/.local/src/zk-org/nvim/shfattig/",
-	-- name = "zk-shfattig",
+	-- "zk-org/zk-nvim",
+	dir = "~/.local/src/zk-org/nvim/char-fix/",
+	name = "zk-crylic-fix",
 
 	event = "BufEnter *.md",
 	config = function()
@@ -71,7 +71,7 @@ return {
 		end
 
 		require("zk").setup({
-			picker = "telescope",
+			picker = "fzf_lua",
 
 			-- lsp config is dealt with here instead of lsp.lua because .setup()
 			-- actually communicates directly with nvim-lsp to setup the server.

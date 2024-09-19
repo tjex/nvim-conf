@@ -19,6 +19,7 @@ return {
 			end,
 		})
 		key.nmap({ "sg", fzf.grep })
+		key.nmap({ "sG", fzf.grep_cword })
 		key.nmap({ "ss", fzf.buffers })
 		key.nmap({ "sd", fzf.lsp_document_symbols })
 		key.nmap({ "sh", fzf.help_tags })
@@ -31,7 +32,7 @@ return {
 		key.nmap({ "sz", fzf.git_stash })
 
 		require("fzf-lua").setup({
-			fzf_colors = true,
+			fzf_colors = { true, ["FzfLuaBufFlagCur"] = { "FzfLuaBufFlagAlt" } },
 			winopts = {
 				width = 0.4,
 				height = 0.8,
