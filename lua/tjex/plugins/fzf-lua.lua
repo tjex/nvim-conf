@@ -5,6 +5,9 @@ return {
 		local key = require("tjex.keymap")
 		local fzf = require("fzf-lua")
 
+		-- use fzf inplace of quickfix
+		fzf.register_ui_select()
+
 		key.imap({
 			"<c-f>",
 			function()
@@ -32,7 +35,7 @@ return {
 		key.nmap({ "sz", fzf.git_stash })
 
 		require("fzf-lua").setup({
-			fzf_colors = { true, ["FzfLuaBufFlagCur"] = { "FzfLuaBufFlagAlt" } },
+			fzf_colors = true,
 			winopts = {
 				width = 0.4,
 				height = 0.8,

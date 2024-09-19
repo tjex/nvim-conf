@@ -19,14 +19,16 @@ local generator = function(win_id)
 			end
 		end)
 	)
+
 	table.insert(segments, sections.split)
-	table.insert(segments, " ")
 	table.insert(segments, builtin.file_relative)
-	table.insert(segments, " • ")
+	table.insert(segments, " (")
 	table.insert(segments, builtin.bufnr)
-	table.insert(segments, " • ")
-	table.insert(segments, "%4((%l/%L%))")
+	table.insert(segments, ") ")
+	table.insert(segments, "•")
+	table.insert(segments, builtin.percentage_through_file .. "%%")
 	table.insert(segments, sections.split)
+	table.insert(segments, ("[" .. builtin.line .. "|" .. builtin.virtual_column .. "]"))
 
 	return segments
 end

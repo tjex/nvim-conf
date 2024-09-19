@@ -106,6 +106,7 @@ Group.new("qffilename", c.text)
 Group.new("QuickFixLine", c.white, nil)
 Group.new("Search", g.hl_bg, g.hl_bg)
 Group.new("IncSearch", g.hl_bg, g.hl_bg)
+Group.new("CurSearch", g.hl_bg, g.hl_bg)
 Group.new("SpecialKey", c.gray_4, nil)
 Group.new("SpellBad", c.tertiary)
 Group.new("SpellCap", c.tertiary)
@@ -347,7 +348,7 @@ Group.new("NvimTreeGitIgnored", c.gray_4)
 
 -- fzf-lua
 Group.new("FzfLuaFzfMatch", c.white)
-Group.new("FzfLuaBorder", c.primary)
+Group.new("FzfLuaBorder", g.border1)
 Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
 Group.new("FzfLuaHeaderText", c.quart)
 Group.new("FzfLuaHeaderBind", c.text)
