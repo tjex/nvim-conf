@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	enabled = false,
+	enabled = true,
 	dependencies = {
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -19,33 +19,33 @@ return {
 		local tb = require("telescope.builtin")
 
 		-- setting previewer false here instead of in setup so that it can be enabled selectively for other commands
-		key.imap({
-			"<c-f>",
-			function()
-				require("telescope.builtin").find_files({ previewer = false })
-			end,
-		})
-
-		key.nmap({
-			"sf",
-			function()
-				require("telescope.builtin").find_files({ previewer = false })
-			end,
-		})
-		key.nmap({ "sc", tb.commands })
-		key.nmap({ "sd", tb.lsp_document_symbols })
-		key.nmap({ "sg", tb.live_grep })
-		key.nmap({ "sG", tb.grep_string })
-		key.nmap({ "sh", tb.help_tags })
-		key.nmap({ "si", tb.lsp_incoming_calls })
-		key.nmap({ "sl", tb.resume })
-		key.nmap({ "so", tb.lsp_outgoing_calls })
-		key.nmap({ "sp", tb.registers })
-		key.nmap({ "sr", tb.lsp_references })
-		key.nmap({ "ss", tb.buffers })
-		key.nmap({ "sY", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
-		key.nmap({ "sy", tb.git_branches })
-		key.nmap({ "sz", tb.git_stash })
+		-- key.imap({
+		-- 	"<c-f>",
+		-- 	function()
+		-- 		require("telescope.builtin").find_files({ previewer = false })
+		-- 	end,
+		-- })
+		--
+		-- key.nmap({
+		-- 	"sf",
+		-- 	function()
+		-- 		require("telescope.builtin").find_files({ previewer = false })
+		-- 	end,
+		-- })
+		-- key.nmap({ "sc", tb.commands })
+		-- key.nmap({ "sd", tb.lsp_document_symbols })
+		-- key.nmap({ "sg", tb.live_grep })
+		-- key.nmap({ "sG", tb.grep_string })
+		-- key.nmap({ "sh", tb.help_tags })
+		-- key.nmap({ "si", tb.lsp_incoming_calls })
+		-- key.nmap({ "sl", tb.resume })
+		-- key.nmap({ "so", tb.lsp_outgoing_calls })
+		-- key.nmap({ "sp", tb.registers })
+		-- key.nmap({ "sr", tb.lsp_references })
+		-- key.nmap({ "ss", tb.buffers })
+		-- key.nmap({ "sY", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
+		-- key.nmap({ "sy", tb.git_branches })
+		-- key.nmap({ "sz", tb.git_stash })
 
 		require("telescope").setup({
 			defaults = {

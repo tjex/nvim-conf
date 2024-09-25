@@ -1,7 +1,7 @@
 return {
 	-- "zk-org/zk-nvim",
-	dir = "~/.local/src/zk-org/nvim/char-fix/",
-	name = "zk-crylic-fix",
+	dir = "~/.local/src/zk-org/nvim/shfattig",
+	name = "zk-grep",
 
 	event = "BufEnter *.md",
 	config = function()

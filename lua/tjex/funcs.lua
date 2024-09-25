@@ -5,7 +5,7 @@ local M = {}
 -- writes stdout to set buffnr
 M.attach_to_buffer = function(output_bufnr, pattern, command)
 	vim.api.nvim_create_autocmd("BufWritePost", {
-		group = vim.api.nvim_create_augroup("tjex", { clear = true }),
+		group = vim.api.nvim_create_augroup("autorun", { clear = true }),
 		pattern = pattern,
 		callback = function()
 			local append_data = function(_, data)

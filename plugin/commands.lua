@@ -17,7 +17,7 @@ usr_cmd("AutoRun", function()
 	local pattern = vim.fn.input("Pattern: ")
 	local command = vim.split(vim.fn.input("Command: "), " ")
 	vim.api.nvim_create_autocmd("BufWritePost", {
-		group = vim.api.nvim_create_augroup("tjex", { clear = true }),
+		group = vim.api.nvim_create_augroup("autorun", { clear = true }),
 		pattern = pattern,
 		callback = function()
 			vim.fn.jobstart(command)
