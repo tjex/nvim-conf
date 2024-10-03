@@ -22,7 +22,8 @@ return {
 		end)
 
 		local keymaps = function()
-			-- normal mode
+			key.nmap({ "gd", vim.lsp.buf.definition })
+
 			-- make daily note
 			key.nmap({
 				"zd",

@@ -10,7 +10,7 @@ return {
 		-- NOTE: zk lsp is managed by /plugin/zk.lua
 		local servers = {
 			"lua_ls",
-			-- "marksman",
+			"marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",
@@ -56,6 +56,21 @@ return {
 			function(server_name)
 				lspconfig[server_name].setup({
 					on_attach = lsp_attach,
+				})
+			end,
+			["marksman"] = function()
+				require("lspconfig").marksman.setup({
+					on_attach = lsp_attach,
+					-- if zk lsp is attached, we are working in a zk notebook
+					-- so detatch marksman.
+					on_init = function(client)
+						local clients = vim.lsp.get_active_clients()
+						for _, c in ipairs(clients) do
+							if c.name == "zk" then
+								vim.lsp.buf_detach_client(0, client.id)
+							end
+						end
+					end,
 				})
 			end,
 			["clangd"] = function()
