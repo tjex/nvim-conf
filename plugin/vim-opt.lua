@@ -9,10 +9,10 @@ vim.opt.updatetime = 50
 -- text / typography
 vim.opt.tw = 80
 vim.opt.wrap = false
-vim.opt.expandtab = true
-vim.opt.autoindent = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.autoindent = true
+vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

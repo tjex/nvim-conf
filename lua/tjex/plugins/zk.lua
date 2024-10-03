@@ -1,7 +1,7 @@
 return {
-	-- "zk-org/zk-nvim",
-	dir = "~/.local/src/zk-org/nvim/shfattig",
-	name = "zk-grep",
+	"zk-org/zk-nvim",
+	-- dir = "~/.local/src/zk-org/nvim/pr194",
+	-- name = "zk-pr194",
 
 	event = "BufEnter *.md",
 	config = function()

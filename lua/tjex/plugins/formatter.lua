@@ -37,7 +37,7 @@ return {
 							exe = "prettierd",
 							args = {
 								util.escape_path(util.get_current_buffer_file_path()),
-								"--tab-width=4",
+								"--tab-width=2",
 							},
 							stdin = true,
 						}
@@ -49,7 +49,7 @@ return {
 							exe = "prettierd",
 							args = {
 								util.escape_path(util.get_current_buffer_file_path()),
-								"--tab-width=4",
+								"--tab-width=2",
 							},
 							stdin = true,
 						}

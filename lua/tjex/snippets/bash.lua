@@ -41,9 +41,5 @@ return {
 			{ i(1) }
 		)
 	),
-	s(
-		"script dir",
-		t(
-        [[script_dir=$(dirname "$(realpath "$0")")]])
-	),
+	s("script dir", t([[script_dir=$(dirname "$(realpath "$0")")]])),
 }

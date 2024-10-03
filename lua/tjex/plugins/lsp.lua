@@ -10,7 +10,7 @@ return {
 		-- NOTE: zk lsp is managed by /plugin/zk.lua
 		local servers = {
 			"lua_ls",
-			"marksman",
+			-- "marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",
@@ -37,13 +37,7 @@ return {
 			local bufopts = { noremap = true, silent = true, buffer = bufnr }
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-			key.nmap({
-				"gd",
-				function()
-					require("fzf-lua").lsp_definitions()
-				end,
-				bufopts,
-			})
+			key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
 			key.nmap({ "[d", vim.diagnostic.goto_prev, bufopts })
 			key.nmap({ "]d", vim.diagnostic.goto_next, bufopts })
 			key.nmap({ "<c-p>", vim.lsp.buf.hover, bufopts })

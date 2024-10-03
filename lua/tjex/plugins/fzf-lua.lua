@@ -37,7 +37,7 @@ return {
 		require("fzf-lua").setup({
 			fzf_colors = true,
 			winopts = {
-				width = 0.4,
+				width = 0.6,
 				height = 0.8,
 				preview = { delay = 20, layout = "vertical", vertical = "up:45%" },
 			},
