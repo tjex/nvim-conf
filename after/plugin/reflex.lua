@@ -195,6 +195,13 @@ Group.new("function.macro", c.gray_5)
 Group.new("@macro", c.gray_5)
 Group.new("macro", c.gray_5)
 
+Group.new("@markup.heading.1.markdown", c.quart, nil, s.underline)
+Group.new("@markup.heading.2.markdown", c.quart, nil, s.underline)
+Group.new("@markup.heading.3.markdown", c.quart, nil, s.underline)
+Group.new("@markup.heading.4.markdown", c.quart, nil, s.underline)
+Group.new("@markup.heading.5.markdown", c.quart, nil, s.underline)
+Group.new("@markup.heading.6.markdown", c.quart, nil, s.underline)
+
 Group.new("@method", c.quart)
 Group.new("method", c.quart)
 
