@@ -1,3 +1,5 @@
+local tjv = require("tjex/vars")
+
 return {
 	"zk-org/zk-nvim",
 	-- dir = "~/.local/src/zk-org/nvim/pr194",
@@ -72,7 +74,7 @@ return {
 		end
 
 		require("zk").setup({
-			picker = "fzf_lua",
+			picker = tjv.picker,
 
 			-- lsp config is dealt with here instead of lsp.lua because .setup()
 			-- actually communicates directly with nvim-lsp to setup the server.

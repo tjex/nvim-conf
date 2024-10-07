@@ -1,3 +1,4 @@
+local tjv = require("tjex/vars")
 return {
 
 	"axieax/urlview.nvim",
@@ -5,7 +6,7 @@ return {
 	config = function()
 		require("urlview").setup({
 			default_title = "URLs:",
-			default_picker = "telescope",
+			default_picker = tjv.picker,
 			default_prefix = "https://",
 			default_action = "system", -- or 'clipboard', 'opera', 'firefox', etc
 			default_register = "+", -- yank register
