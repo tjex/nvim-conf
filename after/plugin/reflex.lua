@@ -23,11 +23,7 @@ Color.new("secondary", "#7F718E") -- purple
 Color.new("tertiary", "#bc9f76") -- burnt_yellow
 Color.new("quart", "#bf8585") -- soft_red
 Color.new("yellow", "#cca166")
-Color.new("green", "#4e9a6f") -- green
-Color.new("diag_error", "#9c5543")
-Color.new("diag_info", "#647f9d")
-Color.new("diag_hint", "#339843")
-Color.new("diag_warn", "#ba8c64")
+Color.new("green", "#649d82") -- green
 Color.new("blue_2", "#6f88a6")
 Color.new("black", "#1a1a1a")
 Color.new("gray_0", "#b4b4b4") -- brightest
@@ -37,6 +33,12 @@ Color.new("gray_3", "#969696")
 Color.new("gray_4", "#737373")
 Color.new("gray_5", "#585858")
 Color.new("gray_6", "#2b2b2b") -- dullest
+
+-- diagnostic colors
+Color.new("diag_error", "#945a4b")
+Color.new("diag_info", "#aeaeae")
+Color.new("diag_hint", "#649d82")
+Color.new("diag_warn", "#b18d6d")
 
 -- Group Sets
 Group.new("border1", c.primary)
@@ -374,3 +376,7 @@ Group.new("IblIndent", c.blue_1)
 -- cmp
 Group.new("CmpItemMenu", g.hl_fg, g.hl_fg)
 Group.new("CmpItemAbbrMatch", g.hl_fg, g.hl_fg)
+
+-- Todo
+Group.new("TodoSignNOTE", c.green, nil)
+Group.new("TodoFgNOTE", c.green, nil)
