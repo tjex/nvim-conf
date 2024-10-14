@@ -16,6 +16,7 @@ return {
 			"stylelint_lsp",
 			"astro",
 			"jsonls",
+			"ruff",
 		}
 
 		require("mason").setup({})
@@ -32,11 +33,12 @@ return {
 			border = "rounded",
 		})
 
-		local function lsp_keymaps(bufnr)
-			-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local lsp_attach = function(client, bufnr)
 			local bufopts = { noremap = true, silent = true, buffer = bufnr }
-			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+			-- I don't actually use this do I?
+			-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
+			client.server_capabilities.document_formatting = true
 			key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
 			key.nmap({ "[d", vim.diagnostic.goto_prev, bufopts })
 			key.nmap({ "]d", vim.diagnostic.goto_next, bufopts })
@@ -44,23 +46,19 @@ return {
 			key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
 		end
 
-		local lsp_attach = function(client, bufnr)
-			lsp_keymaps(bufnr)
-
-			-- see ./formatter.lua for formatting provider logic
-			client.server_capabilities.document_formatting = true
-			require("cmp_nvim_lsp").default_capabilities()
-		end
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		require("mason-lspconfig").setup_handlers({
 			function(server_name)
 				lspconfig[server_name].setup({
 					on_attach = lsp_attach,
+					capabilities = capabilities,
 				})
 			end,
 			["marksman"] = function()
 				require("lspconfig").marksman.setup({
 					on_attach = lsp_attach,
+					capabilities = capabilities,
 					-- if zk lsp is attached, we are working in a zk notebook
 					-- so detatch marksman.
 					on_init = function(client)
@@ -76,6 +74,7 @@ return {
 			["clangd"] = function()
 				require("lspconfig").clangd.setup({
 					on_attach = lsp_attach,
+					capabilities = capabilities,
 					name = "clangd",
 					cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
 					initialization_options = {
@@ -83,31 +82,25 @@ return {
 					},
 				})
 			end,
-			["cssls"] = function()
-				require("lspconfig").cssls.setup({
-					on_attach = lsp_attach,
-					-- cssls needs to have completion enabled via capabilities in
-					-- order to give LSP comp.
-					capabilities = require("cmp_nvim_lsp").default_capabilities(),
-				})
-			end,
 			["lua_ls"] = function()
 				require("lspconfig").lua_ls.setup({
 					on_attach = lsp_attach,
+					capabilities = capabilities,
 					settings = {
 						Lua = {
-							format = {
-								-- NOTE: disabled in lsp_attach to make lsp / formatter.nvim if-then logic work
-								-- https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/lua.template.editorconfig
-								defaultConfig = {
-									quote_style = "single",
-									max_line_length = "120",
-								},
-							},
+							-- format = {
+							-- 	defaultConfig = {
+							-- 		quote_style = "single",
+							-- 		max_line_length = "120",
+							-- 		indent_style = "space",
+							-- 		indent_size = "2",
+							-- 	},
+							-- },
 							diagnostics = {
 								-- Get the language server to recognize the `vim` global
 								globals = { "vim" },
 							},
+							telemetry = { enable = false },
 						},
 					},
 				})
@@ -115,6 +108,7 @@ return {
 			["stylelint_lsp"] = function()
 				require("lspconfig").stylelint_lsp.setup({
 					on_attach = lsp_attach,
+					capabilities = capabilities,
 					settings = {
 						stylelintplus = {
 							autoFixOnSave = true,

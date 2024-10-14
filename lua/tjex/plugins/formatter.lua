@@ -25,14 +25,14 @@ return {
 				bash = {
 					require("formatter.filetypes.sh").shfmt,
 				},
+				python = {
+					require("formatter.filetypes.python").ruff,
+				},
 				javascript = {
-					require("formatter.filetypes.javascript").eslint_d,
+					require("formatter.filetypes.javascript").prettierd,
 				},
 				typescript = {
-					require("formatter.filetypes.typescript").eslint_d,
-				},
-				python = {
-					require("formatter.filetypes.javascript").ruff,
+					require("formatter.filetypes.typescript").prettierd,
 				},
 				css = {
 					function()

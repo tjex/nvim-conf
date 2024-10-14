@@ -7,7 +7,7 @@ return {
 		require("gen").prompts = {} -- clear defaults first
 		local prompt = require("gen").prompts
 
-		local code_model = "deepseek-coder:33b"
+		local code_model = "deepseek-coder:6.7b"
 
 		require("gen").setup({
 			model = "llama3.1",

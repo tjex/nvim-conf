@@ -1,11 +1,10 @@
 -- reflex color scheme by Tillman Jex (https://tjex.net)
 
--- don't color backgrounds of floating windows (and backgrounds?..)
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
 local colorbuddy = require("colorbuddy")
 colorbuddy.colorscheme("reflex")
+
+-- don't color backgrounds of floating windows
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 local Color = colorbuddy.Color
 local Group = colorbuddy.Group
@@ -211,8 +210,8 @@ Group.new("method.call", c.quart)
 Group.new("@namespace", c.gray_0)
 Group.new("namespace", c.gray_0)
 
-Group.new("@Normal", c.text, nil)
-Group.new("Normal", c.text, nil)
+Group.new("@Normal", c.text, c.bground)
+Group.new("Normal", c.text, c.bground)
 
 Group.new("@none", c.gray_1)
 Group.new("none", c.gray_1)
