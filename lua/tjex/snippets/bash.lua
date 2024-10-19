@@ -41,5 +41,18 @@ return {
 			{ i(1) }
 		)
 	),
+	s(
+		"for loop directory",
+		fmt(
+			[[
+            for file in {}/*; do
+                if [ -f "$file" ]; then  # Check if it is a file
+                    echo "$(basename "$file")"  # Print the file name
+                fi
+            done
+            ]],
+			{ i(1) }
+		)
+	),
 	s("script dir", t([[script_dir=$(dirname "$(realpath "$0")")]])),
 }

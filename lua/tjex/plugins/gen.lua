@@ -46,24 +46,25 @@ return {
 			model = code_model,
 			prompt = "Explain how the following code works:\n```$filetype\n$text```",
 		}
-
 		prompt["fix_code"] = {
 			model = code_model,
 			prompt = "The following code is buggy, fix it. Output ONLY the fixed code. DO NOT include anything except the specific code required to fix this problem:\n```$filetype\n$text```",
 			replace = false,
 			extract = "```$filetype\n(.-)```",
 		}
-
 		prompt["optimize_code"] = {
 			model = code_model,
 			prompt = "Optimize the following code, and explain concisely why the changes were made. Output the optimized code after your explanation:\n```$filetype\n$text```",
 			replace = false,
 			extract = "```$filetype\n(.-)```",
 		}
-
 		prompt["code_question"] = {
 			model = code_model,
 			prompt = "I want to ask you a question about some code. $input:\n\n```$filetype\n$text```",
+		}
+		prompt["code_command"] = {
+			model = code_model,
+			prompt = "You are an expert programmer and your job is to help me. $input:\n\n```$filetype\n$text```",
 		}
 
 		-- writing and general text
@@ -73,19 +74,21 @@ return {
 			replace = false,
 			extract = '"(.-)"',
 		}
-
 		prompt["improve_writing"] = {
 			prompt = "Improve the following text by making it clearer. You can increase the word count if necessary. Do not output any other text than the improved text that should replace the input text. Here is the text:\n'$text'",
 			replace = false,
 			extract = '"(.-)"',
 		}
-
 		prompt["summarise_text"] = {
 			prompt = "Summarise the following text: $text",
 		}
-
 		prompt["ask_about_text"] = {
 			prompt = "$input. Take a breath and think openly.\nThe following text is what my question or concern is based on: $text.",
+		}
+		prompt["spelling_and_grammar"] = {
+			prompt = "Correct any spelling and grammar mistakes in the following text: $text.",
+			replace = false,
+			extract = '"(.-)"',
 		}
 	end,
 }

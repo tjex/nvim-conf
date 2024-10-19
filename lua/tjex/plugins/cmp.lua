@@ -15,9 +15,9 @@ return {
 		require("cmp").setup({
 			completion = {
 				autocomplete = {
-					-- types.cmp.TriggerEvent.TextChanged,
+					types.cmp.TriggerEvent.TextChanged,
 				},
-				keyword_length = 3,
+				keyword_length = 5,
 			},
 			snippet = {
 				expand = function(args)
@@ -29,7 +29,7 @@ return {
 				completion = require("cmp").config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
 			},
-			performance = { max_view_entries = 10 },
+			performance = { max_view_entries = 5 },
 			mapping = cmp.mapping.preset.insert({
 				["<c-k>"] = cmp.mapping.select_prev_item(),
 				["<c-j>"] = cmp.mapping.select_next_item(),
@@ -47,7 +47,7 @@ return {
 			formatting = {
 				format = lspkind.cmp_format({
 					mode = "symbol",
-					maxwidth = 50,
+					maxwidth = 100,
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					menu = {
 						nvim_lsp = "[LSP]",

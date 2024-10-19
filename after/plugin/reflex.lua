@@ -138,11 +138,11 @@ Group.new("comment", c.gray_5, nil, s.italic)
 Group.new("@conditional", c.gray_0)
 Group.new("conditional", c.gray_0)
 
-Group.new("@constant", c.gray_0)
-Group.new("constant", c.gray_0)
+Group.new("@constant", c.gray_4)
+Group.new("constant", c.gray_4)
 
-Group.new("@constant.builtin", c.gray_0)
-Group.new("constant.builtin", c.gray_0)
+Group.new("@constant.builtin", c.gray_4)
+Group.new("constant.builtin", c.gray_4)
 
 Group.new("@constructor", c.gray_0)
 Group.new("constructor", c.gray_0)
@@ -374,8 +374,9 @@ Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
 Group.new("IblIndent", c.blue_1)
 
 -- cmp
-Group.new("CmpItemMenu", g.hl_fg, g.hl_fg)
-Group.new("CmpItemAbbrMatch", g.hl_fg, g.hl_fg)
+Group.new("CmpItemMenu", c.text)
+Group.new("CmpItemAbbrMatch", c.text)
+Group.new("CmpItemAbbr", c.gray_4)
 
 -- Todo
 Group.new("TodoSignNOTE", c.green, nil)

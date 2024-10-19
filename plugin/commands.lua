@@ -25,6 +25,13 @@ usr_cmd("AutoRun", function()
 	})
 end, {})
 
+usr_cmd("Publish", function()
+	local message = vim.fn.input("Commit message: ")
+	vim.cmd(":cd %:p:h") -- cd into blog directory as precaution
+	vim.cmd(":Git add %")
+	vim.cmd(":Git commit -m " .. "'" .. message .. "'")
+	vim.cmd(":! make ../../.. deploy")
+end, {})
 usr_cmd("Date", "norm! i" .. vim.fn.strftime("%Y-%m-%d"), {})
 usr_cmd("PubDate", "norm! a " .. vim.fn.strftime("%Y-%m-%dT%XZ"), {}) -- norm command includes adding the white space
 usr_cmd("Dapui", ":lua require('dapui').toggle()<CR>", {})

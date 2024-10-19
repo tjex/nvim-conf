@@ -112,7 +112,6 @@ return {
 						for _, client in pairs(lsp_clients) do
 							if client.server_capabilities.document_formatting then
 								vim.lsp.buf.format()
-								print("formatted with lsp")
 								return
 							end
 						end
