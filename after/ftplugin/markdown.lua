@@ -1,5 +1,6 @@
 -- markdown specific settings
 -- local key = vim.api.nvim_set_keymap
+local cmd = require("zk.commands")
 local key = require("tjex.keymap")
 local util = require("tjex.util")
 
@@ -11,6 +12,7 @@ vim.opt_local.spell = true
 -- all mappings set here should be local only
 local bufnr = vim.api.nvim_get_current_buf()
 
+key.imap({ "<c-a>", vim.fn.system("arvelie 2020 -c today"), { buffer = bufnr } })
 key.imap({ "<c-d>", vim.fn.strftime("%Y-%m-%d"), { buffer = bufnr } })
 key.imap({
 	"<c-e>",

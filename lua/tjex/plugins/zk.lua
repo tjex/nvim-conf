@@ -23,8 +23,8 @@ return {
 			zk.edit(options, { title = "Zk Orphans" })
 		end)
 
-		local keymaps = function()
-			key.nmap({ "gd", vim.lsp.buf.definition })
+		local keymaps = function(bufnr)
+			key.nmap({ "gd", vim.lsp.buf.definition, { buffer = bufnr } })
 
 			-- make daily note
 			key.nmap({
@@ -44,23 +44,33 @@ return {
 						else
 							title = "'" .. filename .. ":" .. " " .. subheading .. "'"
 						end
-						cmd.get("ZkNew")({ dir = diary_dir, group = "d", title = title })
+						cmd.get("ZkNew")({ dir = diary_dir, group = "d", title = title, { buffer = bufnr } })
 					end
 				end,
+				{ buffer = bufnr },
 			})
-			key.nmap({ "zn", ":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>" })
-			key.nmap({ "st", ":ZkTags<cr>" })
-			key.nmap({ "sf", ":ZkNotes<cr>" })
-			key.nmap({ "so", ":ZkLinks<cr>" })
-			key.nmap({ "si", ":ZkBacklinks<cr>" })
+			key.nmap({
+				"zn",
+				":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>",
+				{ buffer = bufnr },
+			})
+			key.nmap({ "st", ":ZkTags<cr>", { buffer = bufnr } })
+			key.nmap({ "sf", ":ZkNotes {excludeHrefs = {'d'}}<cr>", { buffer = bufnr } })
+			key.nmap({ "so", ":ZkLinks<cr>", { buffer = bufnr } })
+			key.nmap({ "si", ":ZkBacklinks<cr>", { buffer = bufnr } })
 
 			-- visual mode
-			key.vmap({ "sm", ":ZkMatch<cr>" })
-			key.vmap({ "zn", ":ZkNewFromTitleSelection {dir = vim.fn.input('Dir: ')}<cr>" })
-			key.vmap({ "zl", ":ZkInsertLinkAtSelection<cr>" })
+			key.vmap({ "sm", ":ZkMatch<cr>", { buffer = bufnr } })
+			key.vmap({
+				"zn",
+				":ZkNewFromTitleSelection {dir = vim.fn.input('Dir: ')}<cr>",
+				{ buffer = bufnr },
+			})
+			key.vmap({ "zl", ":ZkInsertLinkAtSelection<cr>", { buffer = bufnr } })
 			key.vmap({
 				"ze",
 				":ZkNewFromContentSelection {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>",
+				{ buffer = bufnr },
 			})
 
 			-- insert mode
@@ -70,6 +80,7 @@ return {
 					vim.cmd("norm! i") -- otherwise link gets inserted after cursor
 					cmd.get("ZkInsertLink")()
 				end,
+				{ buffer = bufnr },
 			})
 		end
 
@@ -84,8 +95,9 @@ return {
 					cmd = { "zk", "lsp", "--log", "/tmp/zk-lsp.log" },
 					name = "zk",
 					on_attach = function()
+						local bufnr = vim.api.nvim_get_current_buf()
 						require("cmp_nvim_lsp").default_capabilities()
-						keymaps()
+						keymaps(bufnr)
 					end,
 				},
 
