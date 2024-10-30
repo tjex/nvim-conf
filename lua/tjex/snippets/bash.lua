@@ -55,4 +55,21 @@ return {
 		)
 	),
 	s("script dir", t([[script_dir=$(dirname "$(realpath "$0")")]])),
+    -- don't know how to escape the brackets, and cbf looking it up now
+    -- s("pause", fmt(
+    --     [[
+    --     func pause() {
+    --         read 'response?To continue, type "c": '
+    --         if [[ $response == "c" ]]; then
+    --             echo 'Continuing ...'
+    --         else
+    --             pause
+    --         fi
+    --     }
+    --
+    --     pause
+    --     {{}}
+    --     ]],
+    --         { i(1)}
+    -- )),
 }

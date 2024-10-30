@@ -1,4 +1,5 @@
 return {
+    enabled = false,
 	dir = "~/.local/plugins/git-worktree.nvim",
 	config = function()
 		require("git-worktree").setup({
