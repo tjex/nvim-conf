@@ -14,8 +14,6 @@ local s = colorbuddy.styles
 
 Color.new("bground", "#121417")
 Color.new("bg_lighter", "#1a1d22")
-Color.new("bg_light", "#1b1e2d")
-Color.new("bg_text", "#525d8a")
 Color.new("white", "#aeaeae")
 
 Color.new("primary", "#5a728e") -- blue_1
@@ -85,9 +83,9 @@ Group.new("endofbuffer", c.bground)
 Group.new("buffers", c.gray_4)
 Group.new("SignColumn", nil, nil)
 Group.new("LineNr", c.gray_4)
-Group.new("statusline", c.bg_text, c.bg_lighter)
+Group.new("statusline", c.primary, c.bg_lighter)
 Group.new("statuslineNC", c.gray_4, nil, s.italic)
-Group.new("WinSeparator", c.primary, nil)
+Group.new("WinSeparator", c.gray_6, nil)
 Group.new("VertSplit", c.gray_6, c.gray_6)
 
 -- UI Elements
@@ -98,7 +96,7 @@ Group.new("MatchParen", nil, c.gray_5)
 Group.new("MoreMsg", nil, c.gray_4)
 Group.new("ModeMsg", c.diag_warn, nil)
 Group.new("NonText", c.gray_6, nil)
-Group.new("Pmenu", c.gray_0, c.bg_light)
+Group.new("Pmenu", c.gray_0, c.bg_lighter)
 Group.new("PmenuSel", g.hl_bg, g.hl_bg)
 Group.new("PmenuSbar", c.primary, c.gray_6)
 Group.new("PmenuThumb", c.primary, c.gray_5)
@@ -368,6 +366,9 @@ Group.new("FzfLuaBufNr", c.quart)
 Group.new("FzfLuaTabTitle", c.primary)
 Group.new("FzfLuaTabMarker", c.quart)
 Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
+Group.new("FzfLuaBufFlagCur", c.quart)
+Group.new("FzfLuaBufFlagAlt", c.primary)
+Group.new("FzfLuaBackdrop", nil, nil)
 
 -- blankline
 -- these hl g don't seem to work (2023-09-29)
