@@ -12,17 +12,17 @@ local c = colorbuddy.colors
 local g = colorbuddy.groups
 local s = colorbuddy.styles
 
-Color.new("bground", "#1a1c23")
-Color.new("bg_lighter", "#202436")
+Color.new("bground", "#121318")
+Color.new("bg_lighter", "#1a1d22")
 Color.new("bg_light", "#1b1e2d")
 Color.new("bg_text", "#525d8a")
-Color.new("white", "#dedede")
+Color.new("white", "#eeeeee")
 
 Color.new("primary", "#647f9d") -- blue_1
 Color.new("secondary", "#7F718E") -- purple
 Color.new("tertiary", "#bc9f76") -- burnt_yellow
 Color.new("quart", "#bf8585") -- soft_red
-Color.new("yellow", "#cca166")
+Color.new("yellow", "#c4a06e")
 Color.new("green", "#649d82") -- green
 Color.new("blue_2", "#6f88a6")
 Color.new("black", "#1a1a1a")
