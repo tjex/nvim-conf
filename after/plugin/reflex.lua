@@ -317,6 +317,9 @@ Group.new("variable.builtin", c.gray_3)
 Group.new("@underlined", c.primary, nil, nil) -- markdown links also
 Group.new("underlined", c.primary, nil, nil)
 
+Group.new("@backdrop", nil, nil)
+Group.new("backdrop", nil, nil)
+
 -------------
 -- PLUGINS --
 -------------
@@ -354,7 +357,7 @@ Group.new("NvimTreeGitIgnored", c.gray_4)
 
 -- fzf-lua
 Group.new("FzfLuaFzfMatch", c.white)
-Group.new("FzfLuaNormal", c.gray_4)
+Group.new("FzfLuaNormal", c.gray_4) -- search results
 Group.new("FzfLuaBorder", g.border1)
 Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
 Group.new("FzfLuaHeaderText", c.quart)
@@ -369,7 +372,7 @@ Group.new("FzfLuaTabMarker", c.quart)
 Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
 Group.new("FzfLuaBufFlagCur", c.quart)
 Group.new("FzfLuaBufFlagAlt", c.primary)
-Group.new("FzfLuaBackdrop", nil)
+-- Group.new("FzfLuaBackdrop", nil, nil)
 
 -- blankline
 -- these hl g don't seem to work (2023-09-29)

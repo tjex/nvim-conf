@@ -42,6 +42,7 @@ return {
 				preview = { delay = 20, layout = "vertical", vertical = "up:45%" },
 			},
 			defaults = { file_icons = false },
+			hls = { backdrop = "nil" },
 		})
 	end,
 }
