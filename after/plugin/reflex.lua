@@ -39,7 +39,7 @@ Color.new("diag_hint", "#649d82")
 Color.new("diag_warn", "#b18d6d")
 
 -- Group Sets
-Group.new("border1", c.primary)
+Group.new("border1", c.tertiary)
 Group.new("border2", c.quart)
 Group.new("hl_bg", c.black, c.primary)
 Group.new("hl_fg", c.quart, nil)
@@ -83,7 +83,7 @@ Group.new("endofbuffer", c.bground)
 Group.new("buffers", c.gray_4)
 Group.new("SignColumn", nil, nil)
 Group.new("LineNr", c.gray_4)
-Group.new("statusline", c.primary, c.bg_lighter)
+Group.new("statusline", c.tertiary, c.bg_lighter)
 Group.new("statuslineNC", c.gray_4, nil, s.italic)
 Group.new("WinSeparator", c.gray_6, nil)
 Group.new("VertSplit", c.gray_6, c.gray_6)
@@ -323,7 +323,7 @@ Group.new("underlined", c.primary, nil, nil)
 
 -- Oil
 
-Group.new("OilDir", c.primary, nil)
+Group.new("OilDir", c.tertiary, nil)
 Group.new("OilDirIcon", c.text, nil)
 
 -- NvimTree
@@ -354,6 +354,7 @@ Group.new("NvimTreeGitIgnored", c.gray_4)
 
 -- fzf-lua
 Group.new("FzfLuaFzfMatch", c.white)
+Group.new("FzfLuaNormal", c.gray_4)
 Group.new("FzfLuaBorder", g.border1)
 Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
 Group.new("FzfLuaHeaderText", c.quart)
@@ -368,7 +369,7 @@ Group.new("FzfLuaTabMarker", c.quart)
 Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
 Group.new("FzfLuaBufFlagCur", c.quart)
 Group.new("FzfLuaBufFlagAlt", c.primary)
-Group.new("FzfLuaBackdrop", nil, nil)
+Group.new("FzfLuaBackdrop", nil)
 
 -- blankline
 -- these hl g don't seem to work (2023-09-29)
