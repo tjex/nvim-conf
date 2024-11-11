@@ -7,7 +7,7 @@ return {
 	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "onsails/lspkind.nvim" },
 
 	config = function()
-		-- NOTE: zk lsp is managed by /plugin/zk.lua
+		-- NOTE: zk lsp is managed by ./zk.lua
 		local servers = {
 			"lua_ls",
 			"marksman",
