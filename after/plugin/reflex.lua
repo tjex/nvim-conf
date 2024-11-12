@@ -28,7 +28,7 @@ Color.new("gray_0", "#b4b4b4") -- brightest
 Color.new("gray_1", "#bcbcbc")
 Color.new("text", "#adadad") -- regular text
 Color.new("gray_3", "#969696")
-Color.new("gray_4", "#737373")
+Color.new("gray_4", "#737373") -- punctuation and strings
 Color.new("gray_5", "#585858")
 Color.new("gray_6", "#2b2b2b") -- dullest
 
@@ -83,7 +83,7 @@ Group.new("endofbuffer", c.bground)
 Group.new("buffers", c.gray_4)
 Group.new("SignColumn", nil, nil)
 Group.new("LineNr", c.gray_4)
-Group.new("statusline", c.tertiary, c.bg_lighter)
+Group.new("statusline", c.primary, c.bg_lighter)
 Group.new("statuslineNC", c.gray_4, nil, s.italic)
 Group.new("WinSeparator", c.gray_6, nil)
 Group.new("VertSplit", c.gray_6, c.gray_6)
@@ -114,7 +114,7 @@ Group.new("SpellRare", c.primary)
 Group.new("TablineFill", nil, nil)
 Group.new("Tabline", g.tab_unfocus, g.tab_unfocus)
 Group.new("TabLineSel", g.tab_focus, g.tab_focus)
-Group.new("Title", c.quart)
+Group.new("Title", c.tertiary)
 Group.new("WildMenu", c.yellow, c.bg_lighter)
 Group.new("VisualNOS", c.primary, c.gray_6)
 Group.new("Visual", g.hl_bg, g.hl_bg)
@@ -255,8 +255,8 @@ Group.new("Special", c.gray_3)
 Group.new("@storageclass", c.gray_0)
 Group.new("storageclass", c.gray_0)
 
-Group.new("@string", c.primary)
-Group.new("string", c.primary)
+Group.new("@string", c.gray_4)
+Group.new("string", c.gray_4)
 
 Group.new("@string.escape", c.gray_0)
 Group.new("string.escape", c.gray_0)
