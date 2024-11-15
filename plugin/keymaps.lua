@@ -14,7 +14,7 @@ key.nmap({ "<leader>cd", ":cd %:h<CR>" })
 key.nmap({ "<leader>w", ":w<cr>" })
 
 -- text operations
-key.nmap({ "˚", "mzJ`z" }) -- append below to current line and leave cursor where it is
+key.nmap({ "<M-k>", "mzJ`z" }) -- append below to current line and leave cursor where it is
 key.xmap({ "<leader>p", '"_d<Left>p' }) -- paste over text and keep same item in paste buffer
 key.nmap({ "<leader>y", '"+y' }) -- copy to sys clipboard
 key.vmap({ "<leader>y", '"+y' })
