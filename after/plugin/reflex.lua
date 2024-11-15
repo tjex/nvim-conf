@@ -114,7 +114,7 @@ Group.new("SpellRare", c.primary)
 Group.new("TablineFill", nil, nil)
 Group.new("Tabline", g.tab_unfocus, g.tab_unfocus)
 Group.new("TabLineSel", g.tab_focus, g.tab_focus)
-Group.new("Title", c.tertiary)
+Group.new("Title", c.primary)
 Group.new("WildMenu", c.yellow, c.bg_lighter)
 Group.new("VisualNOS", c.primary, c.gray_6)
 Group.new("Visual", g.hl_bg, g.hl_bg)
@@ -326,7 +326,7 @@ Group.new("backdrop", nil, nil)
 
 -- Oil
 
-Group.new("OilDir", c.tertiary, nil)
+Group.new("OilDir", c.primary, nil)
 Group.new("OilDirIcon", c.text, nil)
 
 -- NvimTree
