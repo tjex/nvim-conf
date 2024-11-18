@@ -97,7 +97,8 @@ return {
 					on_attach = function()
 						local bufnr = vim.api.nvim_get_current_buf()
 						require("cmp_nvim_lsp").default_capabilities()
-						keymaps(bufnr)
+						-- keymaps(bufnr)
+						vim.keymap.set("n", "<leader>zn", "<cmd>ZkNew<cr>")
 					end,
 				},
 
