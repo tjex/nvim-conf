@@ -1,9 +1,9 @@
 local tjv = require("tjex/vars")
 
 return {
-	"zk-org/zk-nvim",
-	-- dir = "~/.local/src/zk-org/nvim/pr194",
-	-- name = "zk-pr194",
+	-- "zk-org/zk-nvim",
+	dir = "~/projects/zk-nvim/main",
+	name = "zk-local",
 
 	event = "BufEnter *.md",
 	config = function()
@@ -97,8 +97,7 @@ return {
 					on_attach = function()
 						local bufnr = vim.api.nvim_get_current_buf()
 						require("cmp_nvim_lsp").default_capabilities()
-						-- keymaps(bufnr)
-						vim.keymap.set("n", "<leader>zn", "<cmd>ZkNew<cr>")
+						keymaps(bufnr)
 					end,
 				},
 

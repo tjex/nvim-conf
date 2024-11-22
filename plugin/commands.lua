@@ -38,7 +38,7 @@ usr_cmd(
 	":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/', previewer=false})<CR>",
 	{}
 )
-usr_cmd("Chmod", ":silent !chmod +x %", {})
+usr_cmd("Xmod", ":silent !chmod +x %", {})
 
 -- git worktree
 usr_cmd("WorktreeCreate", ":lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", {})
