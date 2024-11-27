@@ -9,12 +9,12 @@ return {
 	s(
 		"yesno",
 		t({
-			"read -p 'continue? (Y/N): ' confirm",
+			"read -p 'Continue? (Y/N): ' confirm",
 
 			"if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then",
-			"   echo 'confirmed'",
+			"   echo 'Continuing...'",
 			"else",
-			"   echo 'denied'",
+			"   echo 'Aborted'",
 			"fi",
 		})
 	),
