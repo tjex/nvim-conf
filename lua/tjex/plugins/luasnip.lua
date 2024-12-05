@@ -2,7 +2,7 @@ return {
 	"L3MON4D3/LuaSnip",
 
 	config = function()
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 		local ls = require("luasnip")
 
 		-- snippets source

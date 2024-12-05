@@ -3,7 +3,7 @@ return {
 	"stevearc/oil.nvim",
 
 	config = function()
-		local keymap = require("tjex.keymap")
+		local keymap = require("tjex.keybind")
 
 		keymap.nmap({ "<leader>l", "<CMD>Oil --float<CR>" })
 

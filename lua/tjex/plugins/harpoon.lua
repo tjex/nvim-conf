@@ -2,7 +2,7 @@ return {
 	"ThePrimeagen/harpoon",
 
 	config = function()
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 		local mark = require("harpoon.mark")
 
 		require("harpoon").setup({

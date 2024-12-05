@@ -2,7 +2,7 @@ return {
 	"ibhagwan/fzf-lua",
 
 	config = function()
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 		local fzf = require("fzf-lua")
 
 		-- use fzf inplace of quickfix

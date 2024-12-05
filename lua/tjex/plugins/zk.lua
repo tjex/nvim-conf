@@ -10,7 +10,7 @@ return {
 		local tjutil = require("tjex.util")
 
 		local cmd = require("zk.commands")
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 		local util = require("zk.util")
 		local zk = require("zk")
 

@@ -27,7 +27,7 @@ return {
 	end,
 	init = function()
 		local lspconfig = require("lspconfig")
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "rounded",

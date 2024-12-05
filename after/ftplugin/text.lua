@@ -1,4 +1,4 @@
-local key = require("tjex.keymap")
+local key = require("tjex.keybind")
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

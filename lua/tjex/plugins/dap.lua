@@ -8,7 +8,7 @@ return {
 
 		config = function()
 			local dap = require("dap")
-			local key = require("tjex.keymap")
+			local key = require("tjex.keybind")
 
 			key.nmap({ "<F1>", ":lua require'dap'.continue()<CR>" })
 			key.nmap({ "<F4>", ":lua require'dap'.step_over()<CR>" })

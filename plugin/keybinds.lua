@@ -1,5 +1,5 @@
 -- neovim native editor keymaps (not plugin specific)
-local key = require("tjex.keymap")
+local key = require("tjex.keybind")
 
 -- main functionality remaps
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })

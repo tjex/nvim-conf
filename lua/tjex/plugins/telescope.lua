@@ -14,7 +14,7 @@ return {
 
 	config = function()
 		local actions = require("telescope.actions")
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 		local path_actions = require("telescope_insert_path")
 		local tb = require("telescope.builtin")
 

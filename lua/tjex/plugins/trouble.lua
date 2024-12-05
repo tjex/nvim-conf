@@ -7,7 +7,7 @@ return {
 	},
 
 	init = function()
-		local key = require("tjex.keymap")
+		local key = require("tjex.keybind")
 
 		key.nmap({
 			"<leader>io",
