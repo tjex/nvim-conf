@@ -21,6 +21,21 @@ key.vmap({ "<leader>y", '"+y' })
 key.nmap({ "x", '"_x' }) -- stop 'x' from adding to paste
 key.nmap({ "Z", "1z=e" })
 key.nmap({ "fp", "mzgqap`z" }) -- for latex / txt / plain files that don't have formatters
+key.imap({
+	"<C-d>",
+	function()
+		local state = vim.cmd(":set dg?")
+		local new_state = ""
+		if state == "nodigraph" then
+			vim.cmd(":set dg")
+			new_state = vim.cmd(":set dg?")
+		else
+			vim.cmd(":set dg!")
+			new_state = vim.cmd(":set dg?")
+		end
+		print(new_state)
+	end,
+})
 
 -- Replace mode using the word you were currently on (thanks to the Primeageon).
 key.nmap({ "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>" })
@@ -39,10 +54,10 @@ key.nmap({ "`o", '`"' }) -- jump to where cursor was on file close (`" sucks to 
 -- windows
 -- tying out :FocusSplitLeft/Right in place of these.
 -- see plugins/focus.lua
--- key.nmap({ "<C-h>", "<C-w>h" })
--- key.nmap({ "<C-j>", "<C-w>j" })
--- key.nmap({ "<C-k>", "<C-w>k" })
--- key.nmap({ "<C-l>", "<C-w>l" })
+key.nmap({ "<C-h>", "<C-w>h" })
+key.nmap({ "<C-j>", "<C-w>j" })
+key.nmap({ "<C-k>", "<C-w>k" })
+key.nmap({ "<C-l>", "<C-w>l" })
 key.nmap({ "<C-w>r", "<C-w>r<C-w>h" })
 key.nmap({ "H", "<C-w>h<C-w>x<C-w>l" })
 key.nmap({ "L", "<C-w>x" })

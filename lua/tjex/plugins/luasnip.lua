@@ -54,7 +54,7 @@ return {
 			end)
 		end
 
-		map_snippet("<C-k>", "print")
+		map_snippet("<C-p>", "print")
 		map_snippet("<C-e>", "error")
 	end,
 }

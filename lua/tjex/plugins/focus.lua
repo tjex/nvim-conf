@@ -4,10 +4,6 @@ return {
 	init = function()
 		local key = require("tjex.keymap")
 
-		key.nmap({ "<c-h>", "<cmd>FocusSplitLeft<cr>" })
-		key.nmap({ "<c-j>", "<cmd>FocusSplitDown<cr>" })
-		key.nmap({ "<c-k>", "<cmd>FocusSplitUp<cr>" })
-		key.nmap({ "<c-l>", "<cmd>FocusSplitRight<cr>" })
 		key.nmap({ "<c-b>", "<cmd>FocusToggle<cr>" })
 		key.nmap({
 			"<c-ESC>",
