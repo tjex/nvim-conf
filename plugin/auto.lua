@@ -42,7 +42,7 @@ auto({ "BufWritePost" }, {
 auto({ "BufWritePost" }, {
 	group = "custom",
 	pattern = "*.rem",
-	command = "!${HOME}/scripts/progs/calpush.sh",
+	command = "! lnch ~/scripts/progs/calpush.sh",
 })
 
 -- Term --

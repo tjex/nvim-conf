@@ -39,7 +39,7 @@ Color.new("diag_hint", "#649d82")
 Color.new("diag_warn", "#b18d6d")
 
 -- Group Sets
-Group.new("border1", c.primary)
+Group.new("border1", c.gray_3)
 Group.new("border2", c.quart)
 Group.new("hl_bg", c.black, c.primary)
 Group.new("hl_fg", c.quart, nil)

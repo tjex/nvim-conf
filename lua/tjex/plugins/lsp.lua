@@ -12,11 +12,11 @@ return {
 			"lua_ls",
 			"marksman",
 			"gopls",
-			"pyright",
+			"pyright", -- python lsp
+			"ruff", -- python formatter
 			"stylelint_lsp",
 			"astro",
 			"jsonls",
-			"ruff",
 		}
 
 		require("mason").setup({})
