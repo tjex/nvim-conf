@@ -16,8 +16,7 @@ key.nmap({ "<leader>w", ":w<cr>" })
 -- text operations
 key.nmap({ "<M-k>", "mzJ`z" }) -- append below to current line and leave cursor where it is
 key.xmap({ "<leader>p", '"_d<Left>p' }) -- paste over text and keep same item in paste buffer
-key.nmap({ "<leader>y", '"+y' }) -- copy to sys clipboard
-key.vmap({ "<leader>y", '"+y' })
+key.vmap({ "<leader>y", '"+y' }) -- copy to sys clipboard
 key.nmap({ "x", '"_x' }) -- stop 'x' from adding to paste
 key.nmap({ "Z", "1z=e" })
 key.nmap({ "fp", "mzgqap`z" }) -- for latex / txt / plain files that don't have formatters
