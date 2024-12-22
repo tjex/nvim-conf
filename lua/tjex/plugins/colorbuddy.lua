@@ -1,4 +1,8 @@
 return {
 	"tjdevries/colorbuddy.nvim",
-	-- actual colour scheme is at ../../../after/plugin/reflex.lua
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("reflex")
+	end,
 }

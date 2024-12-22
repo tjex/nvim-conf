@@ -350,7 +350,8 @@ Group.new("FzfLuaBufFlagAlt", c.primary)
 
 -- blankline
 -- these hl g don't seem to work (2023-09-29)
-Group.new("IblIndent", c.blue_1)
+Group.new("IblIndent", c.gray_6, nil)
+Group.new("IblWhitespace", nil, nil)
 
 -- cmp
 Group.new("CmpItemMenu", c.text)
