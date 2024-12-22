@@ -1,12 +1,11 @@
+local key = require("tjex.keybind")
 return {
 	"nvim-focus/focus.nvim",
 	version = "*",
 	init = function()
-		local key = require("tjex.keybind")
-
-		key.nmap({ "<c-b>", "<cmd>FocusToggle<cr>" })
+		key.nmap({ "cb", "<cmd>FocusToggle<cr>" })
 		key.nmap({
-			"<c-ESC>",
+			"cc",
 			function()
 				vim.cmd(":vnew")
 				vim.cmd(":vnew")

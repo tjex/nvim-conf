@@ -69,4 +69,4 @@ key.nmap({ "gl", ":tabn<CR>" }) -- next tab
 key.nmap({ "<leader>bd", ":bn<bar>sp<bar>bp<bar>bd<CR>" })
 
 -- terminal
-key.tmap({ "<C-esc>", "<c-\\><c-n>" })
+key.tmap({ "<esc><esc>", "<c-\\><c-n>" })
