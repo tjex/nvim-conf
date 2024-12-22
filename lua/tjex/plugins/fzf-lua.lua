@@ -35,7 +35,7 @@ return {
 		key.nmap({ "sz", fzf.git_stash })
 
 		require("fzf-lua").setup({
-			fzf_colors = true,
+			-- fzf_colors = true,
 			winopts = {
 				width = 0.6,
 				height = 0.8,
