@@ -329,32 +329,6 @@ Group.new("backdrop", nil, nil)
 Group.new("OilDir", c.primary, nil)
 Group.new("OilDirIcon", c.text, nil)
 
--- NvimTree
-Group.new("NvimTreeOpenedFolderName", c.primary)
-Group.new("NvimTreeFolderName", c.primary)
-Group.new("NvimTreeEmptyFolderName", c.primary)
-Group.new("NvimTreeImageFile", c.gray_4)
-Group.new("NvimTreeCursorLine", c.white, nil, s.italic)
-Group.new("NvimTreeNormal", nil)
-Group.new("NvimTreeNormalFloat", nil)
-Group.new("NvimTreeWinSeparator", g.border1)
-Group.new("NvimTreeOpenedFile", c.gray_0, nil)
-Group.new("NvimTreeExecFile", c.gray_0, nil)
-Group.new("NvimTreeWindowPicker", g.tab_focus)
-Group.new("NvimTreeRootFolder", c.quart, nil)
-Group.new("NvimTreeEndOfBuffer", c.bground)
-Group.new("NvimTreeIndentMarker", c.gray_5)
-Group.new("NvimTreeSpecialFile", c.gray_0)
-
-Group.new("NvimTreeGitNew", c.gray_4)
-Group.new("NvimTreeGitDirty", c.gray_4)
-Group.new("NvimTreeGitStaged", c.gray_4)
-Group.new("NvimTreeGitMerge", c.gray_4)
-Group.new("NvimTreeGitRenamed", c.gray_4)
-Group.new("NvimTreeGitNew", c.gray_4)
-Group.new("NvimTreeGitDeleted", c.gray_4)
-Group.new("NvimTreeGitIgnored", c.gray_4)
-
 -- fzf-lua
 Group.new("FzfLuaFzfMatch", c.white)
 Group.new("FzfLuaNormal", c.gray_4) -- search results
