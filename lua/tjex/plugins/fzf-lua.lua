@@ -35,14 +35,25 @@ return {
 		key.nmap({ "sz", fzf.git_stash })
 
 		require("fzf-lua").setup({
-			-- fzf_colors = true,
 			winopts = {
 				width = 0.6,
 				height = 0.8,
 				preview = { delay = 20, layout = "vertical", vertical = "up:45%" },
 			},
 			defaults = { file_icons = false },
-			hls = { backdrop = "nil" },
+			hls = {
+				border = "FloatBorder",
+				backdrop = "nil",
+				header_bind = "primary",
+				header_text = "primary",
+				buf_nr = "keyword",
+				buf_id = "keyword",
+				buf_linenr = "keyword",
+				path_linenr = "keyword",
+				path_colnr = "keyword",
+				buf_flag_cur = "keyword",
+				buf_flag_alt = "keyword",
+			},
 		})
 	end,
 }

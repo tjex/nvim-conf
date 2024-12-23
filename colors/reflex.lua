@@ -330,22 +330,23 @@ Group.new("OilDir", c.primary, nil)
 Group.new("OilDirIcon", c.text, nil)
 
 -- fzf-lua
-Group.new("FzfLuaFzfMatch", c.white)
-Group.new("FzfLuaNormal", c.gray_4) -- search results
-Group.new("FzfLuaBorder", g.border1)
-Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
-Group.new("FzfLuaHeaderText", c.quart)
-Group.new("FzfLuaHeaderBind", c.text)
-Group.new("FzfLuaBufferName", c.primary)
-Group.new("FzfLuaLiveSym", c.quart)
-Group.new("FzfLuaPathLineNr", c.gray_3)
-Group.new("FzfLuaPathColNr", c.gray_3)
-Group.new("FzfLuaBufNr", c.quart)
-Group.new("FzfLuaTabTitle", c.primary)
-Group.new("FzfLuaTabMarker", c.quart)
-Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
-Group.new("FzfLuaBufFlagCur", c.quart)
-Group.new("FzfLuaBufFlagAlt", c.primary)
+-- 2024-12-23, currently moving these to fzf-lua setup().
+-- Group.new("FzfLuaFzfMatch", c.white)
+-- Group.new("FzfLuaNormal", c.gray_4) -- search results
+-- Group.new("FzfLuaBorder", g.border1)
+-- Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
+-- Group.new("FzfLuaHeaderText", c.quart)
+-- Group.new("FzfLuaHeaderBind", c.text)
+-- Group.new("FzfLuaBufferName", c.primary)
+-- Group.new("FzfLuaLiveSym", c.quart)
+-- Group.new("FzfLuaPathLineNr", c.gray_3)
+-- Group.new("FzfLuaPathColNr", c.gray_3)
+-- Group.new("FzfLuaBufNr", c.quart)
+-- Group.new("FzfLuaTabTitle", c.primary)
+-- Group.new("FzfLuaTabMarker", c.quart)
+-- Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
+-- Group.new("FzfLuaBufFlagCur", c.quart)
+-- Group.new("FzfLuaBufFlagAlt", c.primary)
 -- Group.new("FzfLuaBackdrop", nil, nil)
 
 -- blankline
