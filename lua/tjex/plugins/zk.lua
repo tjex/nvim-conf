@@ -1,9 +1,9 @@
 local tjv = require("tjex/vars")
 
 return {
-	-- "zk-org/zk-nvim",
-	dir = "~/projects/zk-nvim/main",
-	name = "zk-local",
+	"zk-org/zk-nvim",
+	-- dir = "~/projects/zk-nvim/feat/zkbuffers",
+	-- name = "zk-local",
 
 	event = "BufEnter *.md",
 	config = function()
@@ -14,9 +14,9 @@ return {
 		local util = require("zk.util")
 		local zk = require("zk")
 
-		local year = vim.fn.strftime("%Y")
-		local dateISO = vim.fn.strftime("%Y-%m-%d")
-		local diary_dir = "d/" .. year
+		local arvelie = tjutil.get_cmd_stdout("arvelie 2020 -c today")
+		local arvelieYear = tjutil.get_cmd_stdout("arvelie 2020 -c today | cut -b 1,2")
+		local diary_dir = "d/" .. arvelieYear
 
 		cmd.add("ZkOrphans", function(options)
 			options = vim.tbl_extend("force", { orphan = true }, options or {})
@@ -31,7 +31,7 @@ return {
 				"zd",
 				function()
 					local notebook_root = util.notebook_root(vim.fn.expand("%:p"))
-					local filename = dateISO
+					local filename = arvelie
 					local path_table = { notebook_root, diary_dir, filename }
 					local filepath = table.concat(path_table, "/") .. ".md"
 					local title = ""
@@ -39,10 +39,10 @@ return {
 						vim.cmd(":e " .. filepath)
 					else
 						local subheading = vim.fn.input("Subheading: ")
-						if subheading == "" then
-							title = filename
-						else
+						if subheading ~= "" then
 							title = "'" .. filename .. ":" .. " " .. subheading .. "'"
+						else
+							title = filename
 						end
 						cmd.get("ZkNew")({ dir = diary_dir, group = "d", title = title, { buffer = bufnr } })
 					end
@@ -57,6 +57,7 @@ return {
 			key.nmap({ "st", ":ZkTags<cr>", { buffer = bufnr } })
 			key.nmap({ "sf", ":ZkNotes {excludeHrefs = {'d'}}<cr>", { buffer = bufnr } })
 			key.nmap({ "so", ":ZkLinks<cr>", { buffer = bufnr } })
+			key.nmap({ "ss", ":ZkBuffers<cr>", { buffer = bufnr } })
 			key.nmap({ "si", ":ZkBacklinks<cr>", { buffer = bufnr } })
 
 			-- visual mode

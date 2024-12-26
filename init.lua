@@ -18,5 +18,5 @@ require("lazy").setup({ import = "tjex/plugins" }, {
 	change_detection = {
 		notify = false,
 	},
-	dev = { path = "~/.local/plugins" },
+	dev = { path = "~/.local/src/plugins" },
 })

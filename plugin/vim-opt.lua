@@ -20,7 +20,8 @@ vim.opt.conceallevel = 2
 
 -- search
 vim.opt.hlsearch = false
-vim.opt.smartcase = true
+vim.opt.smartcase = true -- override ignore case opt if capitals are present.
+vim.opt.ignorecase = true
 vim.opt.incsearch = true -- update search highlight duting search
 
 -- editor window

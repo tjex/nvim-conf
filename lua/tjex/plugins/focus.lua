@@ -3,9 +3,9 @@ return {
 	"nvim-focus/focus.nvim",
 	version = "*",
 	init = function()
-		key.nmap({ "<leader>fb", "<cmd>FocusToggle<cr>" })
+		key.nmap({ "<leader>b", "<cmd>FocusToggle<cr>" })
 		key.nmap({
-			"<leader>fc",
+			"<leader>cc",
 			function()
 				vim.cmd(":vnew")
 				vim.cmd(":vnew")

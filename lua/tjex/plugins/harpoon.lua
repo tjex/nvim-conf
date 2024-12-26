@@ -1,9 +1,11 @@
 return {
 	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
+	requires = { "nvim-lua/plenary.nvim" },
 
 	config = function()
 		local key = require("tjex.keybind")
-		local mark = require("harpoon.mark")
+		local h = require("harpoon")
 
 		require("harpoon").setup({
 			-- menu = {
@@ -11,40 +13,35 @@ return {
 			-- },
 		})
 
-		local ui = require("harpoon.ui")
-		key.nmap({ "<leader>a", mark.add_file })
-		key.nmap({ "<leader>h", ui.toggle_quick_menu })
+		key.nmap({
+			"<leader>a",
+			function()
+				h:list():add()
+			end,
+		})
+		key.nmap({
+			"<leader>h",
+			function()
+				h.ui:toggle_quick_menu(h:list())
+			end,
+		})
 		key.nmap({
 			"<C-1>",
 			function()
-				ui.nav_file(1)
+				h:list():select(1)
 			end,
 		})
 		key.nmap({
-			"<C-2>",
+			"K",
 			function()
-				ui.nav_file(2)
+				h:list():next()
 			end,
 		})
 		key.nmap({
-			"<C-3>",
+			"J",
 			function()
-				ui.nav_file(3)
+				h:list():prev()
 			end,
 		})
-		key.nmap({
-			"<C-4>",
-			function()
-				ui.nav_file(4)
-			end,
-		})
-		key.nmap({
-			"<C-5>",
-			function()
-				ui.nav_file(5)
-			end,
-		})
-		key.nmap({ "K", ui.nav_next })
-		key.nmap({ "J", ui.nav_prev })
 	end,
 }

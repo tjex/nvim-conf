@@ -26,4 +26,14 @@ M.strip_home_from_filepath = function(filepath)
 	return filepath
 end
 
+M.get_cmd_stdout = function(command)
+	local handle = io.popen(command)
+	local result = ""
+	if handle ~= nil then
+		result = handle:read("*a")
+	end
+	result = result:gsub("[\n\r]", "")
+	return result
+end
+
 return M
