@@ -22,6 +22,14 @@ auto({ "BufEnter", "BufNewFile" }, {
 	end,
 })
 
+auto({ "BufEnter" }, {
+	group = "custom",
+	callback = function()
+		vim.cmd(":FocusToggle")
+		vim.cmd(":FocusToggle")
+	end,
+})
+
 auto({ "BufWritePost" }, {
 	group = "custom",
 	callback = function()

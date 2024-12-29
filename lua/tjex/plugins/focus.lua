@@ -3,7 +3,6 @@ return {
 	"nvim-focus/focus.nvim",
 	version = "*",
 	init = function()
-		key.nmap({ "<leader>b", "<cmd>FocusToggle<cr>" })
 		key.nmap({
 			"<C-c>",
 			function()
@@ -46,6 +45,9 @@ return {
 	config = function()
 		require("focus").setup({
 			autoresize = { enable = false },
+			-- split = {
+			-- 	bufnew = true, -- Create blank buffer for new split windows
+			-- },
 		})
 	end,
 }
