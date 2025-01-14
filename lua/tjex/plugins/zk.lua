@@ -14,9 +14,9 @@ return {
 		local util = require("zk.util")
 		local zk = require("zk")
 
-		local arvelie = tjutil.get_cmd_stdout("arvelie 2020 -c today")
-		local arvelieYear = tjutil.get_cmd_stdout("arvelie 2020 -c today | cut -b 1,2")
-		local diary_dir = "d/" .. arvelieYear
+		local weekdate = vim.fn.system("~/scripts/utility/weekdate.sh")
+		local year = vim.fn.strftime("%y")
+		local diary_dir = "d/" .. year
 
 		cmd.add("ZkOrphans", function(options)
 			options = vim.tbl_extend("force", { orphan = true }, options or {})
@@ -31,7 +31,7 @@ return {
 				"zd",
 				function()
 					local notebook_root = util.notebook_root(vim.fn.expand("%:p"))
-					local filename = arvelie
+					local filename = weekdate
 					local path_table = { notebook_root, diary_dir, filename }
 					local filepath = table.concat(path_table, "/") .. ".md"
 					local title = ""

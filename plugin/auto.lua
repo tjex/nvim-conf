@@ -50,7 +50,7 @@ auto({ "BufWritePost" }, {
 auto({ "BufWritePost" }, {
 	group = "custom",
 	pattern = "*.rem",
-	command = "! lnch ~/scripts/progs/calpush.sh",
+	command = "! /home/tjex/.local/go/bin/lnch ~/scripts/progs/calpush.sh",
 })
 
 -- Term --
