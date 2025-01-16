@@ -30,6 +30,12 @@ auto({ "BufEnter" }, {
 	end,
 })
 
+auto({ "BufEnter" }, {
+	group = "custom",
+	pattern = "*.rem",
+	command = "! ~/scripts/progs/calpull.sh",
+})
+
 auto({ "BufWritePost" }, {
 	group = "custom",
 	callback = function()
