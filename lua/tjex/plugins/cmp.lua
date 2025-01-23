@@ -14,10 +14,13 @@ return {
 		local lspkind = require("lspkind")
 		require("cmp").setup({
 			completion = {
+                -- with this setup, I initiate completion and can keep typing
+                -- to filter results.
 				autocomplete = {
-					types.cmp.TriggerEvent.TextChanged,
+					false,
+					-- types.cmp.TriggerEvent.TextChanged,
 				},
-				keyword_length = 5,
+				keyword_length = 1,
 			},
 			snippet = {
 				expand = function(args)

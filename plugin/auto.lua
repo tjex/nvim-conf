@@ -30,6 +30,12 @@ auto({ "BufEnter" }, {
 	end,
 })
 
+auto({ "BufEnter", "TermOpen" }, {
+	group = "custom",
+	pattern = "term://*",
+	command = "startinsert",
+})
+
 auto({ "BufEnter" }, {
 	group = "custom",
 	pattern = "*.rem",
