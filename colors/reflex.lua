@@ -14,6 +14,7 @@ local s = colorbuddy.styles
 
 Color.new("bground", "#121417")
 Color.new("bg_lighter", "#1a1d22")
+Color.new("bg_lightest", "#1a1e26")
 Color.new("white", "#aeaeae")
 
 Color.new("primary", "#5a728e") -- blue_1
@@ -68,7 +69,7 @@ Group.new("Conceal", c.gray_5)
 Group.new("Cursor", nil) -- set by term
 Group.new("ColorColumn", nil, nil)
 Group.new("CursorLineNr", c.text, nil)
-Group.new("CursorLine", nil, nil)
+Group.new("CursorLine", nil, c.bg_lightest)
 Group.new("Directory", c.gray_1)
 Group.new("DiffAdded", c.green)
 Group.new("DiffRemoved", c.quart)

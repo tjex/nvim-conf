@@ -26,7 +26,7 @@ vim.opt.incsearch = true -- update search highlight duting search
 
 -- editor window
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = "both"
+vim.opt.cursorlineopt = "number"
 vim.opt.scrolloff = 8 -- maintain min8 lines between cursor window start/end
 vim.opt.number = true
 vim.opt.relativenumber = true
