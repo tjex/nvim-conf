@@ -4,6 +4,7 @@ local i = I.i
 local s = I.s
 local t = I.t
 local fmt = I.fmt
+local fmta = I.fmta
 
 return {
 	s(
@@ -54,22 +55,15 @@ return {
 			{ i(1) }
 		)
 	),
+    s(
+        "determine OS",
+        t({
+            'if [[ "$(uname -m)" == "Darwin" ]]; then',
+            'elif [[ "$(uname)" == "Linux" ]]; then',
+            'else',
+            '    echo "Error, no rule for: " $(uname)',
+            'fi',
+        })
+    ),
 	s("script dir", t([[script_dir=$(dirname "$(realpath "$0")")]])),
-    -- don't know how to escape the brackets, and cbf looking it up now
-    -- s("pause", fmt(
-    --     [[
-    --     func pause() {
-    --         read 'response?To continue, type "c": '
-    --         if [[ $response == "c" ]]; then
-    --             echo 'Continuing ...'
-    --         else
-    --             pause
-    --         fi
-    --     }
-    --
-    --     pause
-    --     {{}}
-    --     ]],
-    --         { i(1)}
-    -- )),
 }
