@@ -13,7 +13,7 @@ return {
 			"marksman",
 			"gopls",
 			"pyright", -- python lsp
-			"ruff", -- python formatter
+			"yapf", -- python formatter
 			"stylelint_lsp",
 			"astro",
 			"jsonls",
