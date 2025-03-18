@@ -13,7 +13,7 @@ return {
 			"marksman",
 			"gopls",
 			"pyright", -- python lsp
-			"ruff", -- python formatter
+			-- "yapf", -- mason doesnt accept this in ensure_installed?
 			"stylelint_lsp",
 			"astro",
 			"jsonls",

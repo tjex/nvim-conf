@@ -13,6 +13,9 @@ return {
 			log_level = vim.log.levels.WARN,
 			filetype = {
 				-- formatters are executed in order within their own tables
+				terraform = {
+					require("formatter.filetypes.terraform").terraformfmt,
+				},
 				cpp = {
 					require("formatter.filetypes.cpp").clangformat,
 				},
@@ -26,7 +29,7 @@ return {
 					require("formatter.filetypes.sh").shfmt,
 				},
 				python = {
-					require("formatter.filetypes.python").ruff,
+					require("formatter.filetypes.python").yapf,
 				},
 				javascript = {
 					require("formatter.filetypes.javascript").prettierd,
