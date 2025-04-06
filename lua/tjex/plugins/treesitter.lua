@@ -24,6 +24,7 @@ return {
 				"tsx",
 				"astro",
 				"go",
+				"python",
 			},
 			context_commentstring = { enabled = true },
 			-- Install parsers synchronously (only applied to `ensure_installed`)

@@ -32,7 +32,7 @@ return {
 				completion = require("cmp").config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
 			},
-			performance = { max_view_entries = 5 },
+			performance = { max_view_entries = 10 },
 			mapping = cmp.mapping.preset.insert({
 				["<c-k>"] = cmp.mapping.select_prev_item(),
 				["<c-j>"] = cmp.mapping.select_next_item(),

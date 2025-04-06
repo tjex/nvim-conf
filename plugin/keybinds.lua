@@ -54,8 +54,8 @@ key.nmap({ "`o", '`"' }) -- jump to where cursor was on file close (`" sucks to 
 -- tying out :FocusSplitLeft/Right in place of these.
 -- see plugins/focus.lua
 key.nmap({ "<C-h>", "<C-w>h" })
-key.nmap({ "<C-j>", "<C-w>j" })
-key.nmap({ "<C-k>", "<C-w>k" })
+key.nmap({ "<C-j>", "<C-d>zz" })
+key.nmap({ "<C-k>", "<C-u>zz" })
 key.nmap({ "<C-l>", "<C-w>l" })
 key.nmap({ "<C-w>r", "<C-w>r<C-w>h" })
 key.nmap({ "H", "<C-w>h<C-w>x<C-w>l" })
