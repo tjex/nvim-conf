@@ -36,21 +36,4 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.laststatus = 3
 vim.opt.showmode = false
 vim.opt.showcmd = false
-vim.opt.tabline = "%!v:lua.TabLine()"
-
-function TabLine()
-	local s = ""
-	for i = 1, vim.fn.tabpagenr("$") do
-		-- Get the name of the file in the tab
-		local bufname = vim.fn.bufname(vim.fn.tabpagebuflist(i)[1])
-		-- Extract just the filename from the full path
-		local filename = vim.fn.fnamemodify(bufname, ":t")
-		-- Check if the tab is active
-		if i == vim.fn.tabpagenr() then
-			s = s .. "%" .. i .. "T" .. "%#TabLineSel#" .. filename .. "%#TabLine# "
-		else
-			s = s .. "%" .. i .. "T" .. "%#TabLine#" .. filename .. " "
-		end
-	end
-	return s
-end
+-- vim.opt.showtabline = 2

@@ -20,21 +20,6 @@ key.vmap({ "<leader>y", '"+y' }) -- copy to sys clipboard
 key.nmap({ "x", '"_x' }) -- stop 'x' from adding to paste
 key.nmap({ "Z", "1z=e" })
 key.nmap({ "fp", "mzgqap`z" }) -- for latex / txt / plain files that don't have formatters
--- key.imap({
--- 	"<C-d>",
--- 	function()
--- 		local state = vim.cmd(":set dg?")
--- 		local new_state = ""
--- 		if state == "nodigraph" then
--- 			vim.cmd(":set dg")
--- 			new_state = vim.cmd(":set dg?")
--- 		else
--- 			vim.cmd(":set dg!")
--- 			new_state = vim.cmd(":set dg?")
--- 		end
--- 		print(new_state)
--- 	end,
--- })
 
 -- Replace mode using the word you were currently on (thanks to the Primeageon).
 key.nmap({ "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>" })
@@ -69,4 +54,4 @@ key.nmap({ "gl", ":tabn<CR>" }) -- next tab
 key.nmap({ "<leader>bd", ":bn<bar>sp<bar>bp<bar>bd<CR>" })
 
 -- terminal
-key.tmap({ "<esc><esc>", "<c-\\><c-n>" })
+key.tmap({ "kj", "<c-\\><c-n>" })
