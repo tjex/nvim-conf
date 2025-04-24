@@ -16,6 +16,7 @@ return {
 		}
 		key.nmap({ "<A-l>", ":tabn<CR>" })
 		key.nmap({ "<A-h>", ":tabn<CR>" })
+		key.nmap({ "<A-6>", "g<Tab>" }) -- switch to last tab
 		key.nmap({ "<leader>to", ":tabonly<CR>" })
 		key.nmap({ "<leader>tn", ":tabnew<CR>" })
 		key.nmap({ "<leader>tc", ":tabclose<CR>" })
@@ -40,7 +41,7 @@ return {
 						return {
 							line.sep("", hl, theme.fill),
 							-- tab.number(),
-							tab.in_jump_mode() and tab.jump_key() or tab.number(),
+							tab.in_jump_mode() and tab.jump_key(),
 							tab.name(),
 							line.sep("", hl, theme.fill),
 							hl = hl,
