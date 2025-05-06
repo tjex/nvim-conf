@@ -35,7 +35,7 @@ return {
 		"for loop file",
 		fmt(
 			[[
-            for read item; do
+            while read item; do
                 echo "$item"
             done <$file{}
             ]],
