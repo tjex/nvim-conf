@@ -41,7 +41,13 @@ return {
 			key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
 			key.nmap({ "[d", vim.diagnostic.goto_prev, bufopts })
 			key.nmap({ "]d", vim.diagnostic.goto_next, bufopts })
-			key.nmap({ "<c-p>", vim.lsp.buf.hover, bufopts })
+			key.nmap({
+				"<c-k>",
+				function()
+					vim.lsp.buf.hover({ border = "rounded" })
+				end,
+				bufopts,
+			})
 			key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
 		end
 
