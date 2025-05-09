@@ -19,9 +19,9 @@ return {
 				cpp = {
 					require("formatter.filetypes.cpp").clangformat,
 				},
-				tex = {
-					require("formatter.filetypes.tex").latexindent,
-				},
+				-- tex = {
+				-- 	require("formatter.filetypes.tex").latexindent,
+				-- },
 				lua = {
 					require("formatter.filetypes.lua").stylua,
 				},

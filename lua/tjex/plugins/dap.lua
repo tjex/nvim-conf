@@ -5,6 +5,7 @@ return {
 			"mxsdev/nvim-dap-vscode-js",
 			"leoluz/nvim-dap-go",
 		},
+		enabled = false,
 
 		config = function()
 			local dap = require("dap")
@@ -80,6 +81,7 @@ return {
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+		enabled = false,
 
 		config = function()
 			require("dapui").setup({

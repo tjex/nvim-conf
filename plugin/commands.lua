@@ -25,19 +25,6 @@ usr_cmd("AutoRun", function()
 	})
 end, {})
 
-usr_cmd("Publish", function()
-	local message = vim.fn.input("Commit message: ")
-	vim.cmd(":cd %:p:h") -- cd into blog directory as precaution
-	vim.cmd(":Git add %")
-	vim.cmd(":Git commit -m " .. "'" .. message .. "'")
-	vim.cmd(":! make ../../.. deploy")
-end, {})
-usr_cmd("Dapui", ":lua require('dapui').toggle()<CR>", {})
-usr_cmd(
-	"Conf",
-	":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/', previewer=false})<CR>",
-	{}
-)
 usr_cmd("Xmod", ":silent !chmod +x %", {})
 
 -- git worktree
@@ -47,4 +34,4 @@ usr_cmd("Rd", ":lua require('persistence').load()<cr>", {})
 usr_cmd("Rs", ":lua require('persistence').load({last = true})<cr>", {})
 
 -- gen
-usr_cmd("GenSelectModel", require("gen").select_model, {})
+-- usr_cmd("GenSelectModel", require("gen").select_model, {})
