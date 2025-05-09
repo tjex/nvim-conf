@@ -2,7 +2,7 @@ local tjv = require("tjex/vars")
 
 return {
 	"zk-org/zk-nvim",
-	-- dir = "~/projects/zk-nvim/feat/zkbuffers",
+	-- dir = "~/zk-nvim",
 	-- name = "zk-local",
 
 	event = "BufEnter *.md",

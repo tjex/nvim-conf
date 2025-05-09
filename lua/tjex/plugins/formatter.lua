@@ -106,7 +106,7 @@ return {
 					-- then notify if neither can do it. The keybind is then universally ":Format", as this
 					-- logic is run when formatter.nvim is run.
 					function()
-						local lsp_clients = vim.lsp.buf_get_clients()
+						local lsp_clients = vim.lsp.get_clients()
 						local formatters = util.get_available_formatters_for_ft(vim.bo.filetype)
 						if #formatters > 0 then
 							return
