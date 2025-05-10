@@ -1,5 +1,5 @@
 -- Compatible with Neovim v0.11+
--- Assumes you are using mason.nvim v2+ and mason-lspconfig.nvim v2+
+-- Configs for lsp, mason and diagnostics
 
 return {
 	"neovim/nvim-lspconfig",
@@ -24,14 +24,20 @@ return {
 			"jsonls",
 		}
 
+		vim.diagnostic.config({
+			virtual_text = false,
+			signs = true,
+			underline = true,
+			update_in_insert = false,
+			severity_sort = true,
+		})
+
 		mason.setup()
 		mason_lspconfig.setup({
 			ensure_installed = servers,
 			automatic_installation = true,
-			automatic_enable = true, -- new in v2
+			automatic_enable = true,
 		})
-
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		local key = require("tjex.keybind")
 		local lsp_attach = function(client, bufnr)
@@ -49,11 +55,26 @@ return {
 				bufopts,
 			})
 			key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
+
+			key.nmap({
+				"<leader>io",
+				function()
+					local config = vim.diagnostic.config() or {}
+					if config.virtual_lines then
+						vim.diagnostic.config({ virtual_lines = false })
+					else
+						vim.diagnostic.config({ virtual_lines = true })
+					end
+				end,
+				{ desc = "Toggle lsp_lines" },
+			})
 		end
 
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "rounded",
 		})
+
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- General config for all servers
 		for _, server in ipairs(servers) do
@@ -101,6 +122,35 @@ return {
 					end
 				end
 			end,
+		}
+
+		vim.lsp.config["ltex_plus"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
+			settings = {
+				ltex = {
+					enabled = {
+						"bib",
+						"context",
+						"gitcommit",
+						"html",
+						"org",
+						"pandoc",
+						"plaintex",
+						"quarto",
+						"mail",
+						"mdx",
+						"rmd",
+						"rnoweb",
+						"rst",
+						"tex",
+						"latex",
+						"text",
+						"typst",
+						"xhtml",
+					},
+				},
+			},
 		}
 
 		vim.lsp.config["clangd"] = {

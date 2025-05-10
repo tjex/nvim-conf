@@ -10,14 +10,8 @@ return {
 		local key = require("tjex.keybind")
 
 		key.nmap({
-			"<leader>io",
+			"<leader>ig",
 			"<cmd>Trouble diagnostics toggle<cr>",
-		})
-		key.nmap({
-			"<leader>il",
-			function()
-				require("trouble").open("loclist")
-			end,
 		})
 	end,
 }
