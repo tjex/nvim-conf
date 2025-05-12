@@ -16,7 +16,7 @@ return {
 
 		local servers = {
 			"lua_ls",
-			"marksman",
+			-- "marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",
