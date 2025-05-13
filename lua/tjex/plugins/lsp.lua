@@ -16,7 +16,7 @@ return {
 
 		local servers = {
 			"lua_ls",
-			-- "marksman",
+			"marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",
@@ -60,7 +60,7 @@ return {
 				bufopts,
 			})
 			key.nmap({
-				"<c-k>",
+				"K",
 				function()
 					vim.lsp.buf.hover({ border = "rounded" })
 				end,
@@ -86,10 +86,7 @@ return {
 			border = "rounded",
 		})
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities({
-            -- necessary as some lsps break if this is enabled
-			insertReplaceSupport = false,
-		})
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- General config for all servers
 		for _, server in ipairs(servers) do
