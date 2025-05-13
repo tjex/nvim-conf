@@ -51,16 +51,6 @@ auto({ "BufWritePost" }, {
 
 auto({ "BufWritePost" }, {
 	group = "custom",
-	callback = function()
-		local ftype = vim.bo.filetype
-		if ftype ~= "markdown" and ftype ~= "mail" then
-			vim.cmd(":FormatWrite")
-		end
-	end,
-})
-
-auto({ "BufWritePost" }, {
-	group = "custom",
 	pattern = "*.rem",
 	command = "! /home/tjex/.local/go/bin/lnch ~/scripts/progs/calpush.sh",
 })

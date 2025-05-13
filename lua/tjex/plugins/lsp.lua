@@ -13,6 +13,7 @@ return {
 	config = function()
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
+		local lspconfig = require("lspconfig")
 
 		local servers = {
 			"lua_ls",
@@ -41,12 +42,34 @@ return {
 
 		local key = require("tjex.keybind")
 		local lsp_attach = function(client, bufnr)
-			local bufopts = { noremap = true, silent = true, buffer = bufnr }
+			local bufopts = { buffer = bufnr }
 			client.server_capabilities.document_formatting = true
 
+			if client:supports_method("textDocument/completion") then
+				-- Trigger autocompletion on EVERY keypress. May be slow!
+				local chars = {}
+				for i = 32, 126 do
+					table.insert(chars, string.char(i))
+				end
+				client.server_capabilities.completionProvider.triggerCharacters = chars
+				vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+			end
+
 			key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
-			key.nmap({ "[d", vim.diagnostic.goto_prev, bufopts })
-			key.nmap({ "]d", vim.diagnostic.goto_next, bufopts })
+			key.nmap({
+				"[d",
+				function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end,
+				bufopts,
+			})
+			key.nmap({
+				"]d",
+				function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end,
+				bufopts,
+			})
 			key.nmap({
 				"<c-k>",
 				function()
@@ -74,7 +97,9 @@ return {
 			border = "rounded",
 		})
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities({
+			insertReplaceSupport = false,
+		})
 
 		-- General config for all servers
 		for _, server in ipairs(servers) do

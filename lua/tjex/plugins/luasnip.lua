@@ -8,9 +8,6 @@ return {
 		-- snippets source
 		require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/tjex/snippets/" })
 
-		-- stop vimwiki from blocking markdown snippets registered in luasnip
-		ls.filetype_extend("vimwiki", { "markdown" })
-
 		ls.config.set_config({
 			history = true,
 			updateevents = "TextChanged,TextChangedI",
