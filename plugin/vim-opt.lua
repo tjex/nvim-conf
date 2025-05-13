@@ -17,7 +17,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.conceallevel = 2
-vim.opt.completeopt = "noselect,menuone,popup"
+vim.opt.completeopt = "noselect,menuone,popup,fuzzy"
 
 -- search
 vim.opt.hlsearch = false

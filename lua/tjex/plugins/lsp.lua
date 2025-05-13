@@ -13,7 +13,6 @@ return {
 	config = function()
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
-		local lspconfig = require("lspconfig")
 
 		local servers = {
 			"lua_ls",
@@ -44,16 +43,6 @@ return {
 		local lsp_attach = function(client, bufnr)
 			local bufopts = { buffer = bufnr }
 			client.server_capabilities.document_formatting = true
-
-			if client:supports_method("textDocument/completion") then
-				-- Trigger autocompletion on EVERY keypress. May be slow!
-				local chars = {}
-				for i = 32, 126 do
-					table.insert(chars, string.char(i))
-				end
-				client.server_capabilities.completionProvider.triggerCharacters = chars
-				vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-			end
 
 			key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
 			key.nmap({
@@ -98,6 +87,7 @@ return {
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities({
+            -- necessary as some lsps break if this is enabled
 			insertReplaceSupport = false,
 		})
 
