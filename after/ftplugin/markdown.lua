@@ -1,6 +1,4 @@
 -- markdown specific settings
--- local key = vim.api.nvim_set_keymap
-local cmd = require("zk.commands")
 local key = require("tjex.keybind")
 local util = require("tjex.util")
 

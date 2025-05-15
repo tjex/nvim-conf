@@ -1,6 +1,48 @@
 -- Compatible with Neovim v0.11+
 -- Configs for lsp, mason and diagnostics
 
+local lsp_keymaps = function(bufnr)
+	local key = require("tjex.keybind")
+	local bufopts = { buffer = bufnr }
+
+	key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
+	key.nmap({
+		"[d",
+		function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end,
+		bufopts,
+	})
+	key.nmap({
+		"]d",
+		function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end,
+		bufopts,
+	})
+	key.nmap({
+		"K",
+		function()
+			vim.lsp.buf.hover({ border = "rounded" })
+		end,
+		bufopts,
+	})
+	key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
+
+	key.nmap({
+		"<leader>io",
+		function()
+			local config = vim.diagnostic.config() or {}
+			if config.virtual_lines then
+				vim.diagnostic.config({ virtual_lines = false })
+			else
+				vim.diagnostic.config({ virtual_lines = true })
+			end
+		end,
+		{ desc = "Toggle lsp_lines" },
+	})
+end
+
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -26,7 +68,9 @@ return {
 
 		vim.diagnostic.config({
 			virtual_text = false,
-			signs = true,
+			signs = { text = {
+				[vim.diagnostic.severity.INFO] = "",
+			} },
 			underline = true,
 			update_in_insert = false,
 			severity_sort = true,
@@ -39,47 +83,9 @@ return {
 			automatic_enable = true,
 		})
 
-		local key = require("tjex.keybind")
 		local lsp_attach = function(client, bufnr)
-			local bufopts = { buffer = bufnr }
 			client.server_capabilities.document_formatting = true
-
-			key.nmap({ "gd", vim.lsp.buf.definition, bufopts })
-			key.nmap({
-				"[d",
-				function()
-					vim.diagnostic.jump({ count = -1, float = true })
-				end,
-				bufopts,
-			})
-			key.nmap({
-				"]d",
-				function()
-					vim.diagnostic.jump({ count = -1, float = true })
-				end,
-				bufopts,
-			})
-			key.nmap({
-				"K",
-				function()
-					vim.lsp.buf.hover({ border = "rounded" })
-				end,
-				bufopts,
-			})
-			key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
-
-			key.nmap({
-				"<leader>io",
-				function()
-					local config = vim.diagnostic.config() or {}
-					if config.virtual_lines then
-						vim.diagnostic.config({ virtual_lines = false })
-					else
-						vim.diagnostic.config({ virtual_lines = true })
-					end
-				end,
-				{ desc = "Toggle lsp_lines" },
-			})
+			lsp_keymaps(bufnr)
 		end
 
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -141,26 +147,11 @@ return {
 			capabilities = capabilities,
 			settings = {
 				ltex = {
-					enabled = {
-						"bib",
-						"context",
-						"gitcommit",
-						"html",
-						"org",
-						"pandoc",
-						"plaintex",
-						"quarto",
-						"mail",
-						"mdx",
-						"rmd",
-						"rnoweb",
-						"rst",
-						"tex",
-						"latex",
-						"text",
-						"typst",
-						"xhtml",
+					disabledRules = {
+						["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
 					},
+					language = "en-AU",
+					completionEnabled = true,
 				},
 			},
 		}
