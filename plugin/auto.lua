@@ -32,11 +32,17 @@ auto({ "BufEnter" }, {
 	desc = "Balance splits.",
 })
 
+local function is_regular_file(bufnr)
+	bufnr = bufnr or 0
+	return vim.bo[bufnr].buftype == "" and vim.api.nvim_buf_get_name(bufnr) ~= ""
+end
+
 -- cd into file's directory on enter
 auto({ "BufEnter" }, {
 	group = "custom",
-	callback = function()
-		if vim.bo.filetype ~= "oil" then
+	callback = function(buffer)
+        -- why doesn't this work for oil buffers as well?...
+		if is_regular_file(buffer.buf) == true and vim.bo.filetype ~= "oil" then
 			vim.cmd("Cd")
 		end
 	end,
