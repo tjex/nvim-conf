@@ -35,6 +35,14 @@ key.nmap({ "n", "nzzzv" }) -- keep cursor in middle during search
 key.nmap({ "N", "Nzzzv" })
 key.nmap({ "`o", '`"' }) -- jump to where cursor was on file close (`" sucks to type)
 
+-- use keydirections that make sense for commandline menu
+vim.cmd([[
+  cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+  cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+  cnoremap <expr> <Left> pumvisible() ? "\<Up>" : "\<Left>"
+  cnoremap <expr> <Right> pumvisible() ? "\<Down>" : "\<Right>"
+]])
+
 -- windows
 -- tying out :FocusSplitLeft/Right in place of these.
 -- see plugins/focus.lua

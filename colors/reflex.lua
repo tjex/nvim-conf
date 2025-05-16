@@ -46,6 +46,8 @@ Group.new("hl_bg", c.black, c.primary)
 Group.new("hl_fg", c.quart, nil)
 Group.new("tab_unfocus", c.gray_4, c.bg_lighter)
 Group.new("tab_focus", c.yellow, c.bg_lighter)
+Group.new("text_selected", c.white, nil, s.bold)
+Group.new("text_unselected", c.gray_4, c.bg_lighter)
 
 ------------------
 -- COLORING THINGS
@@ -97,8 +99,8 @@ Group.new("MatchParen", nil, c.gray_5)
 Group.new("MoreMsg", nil, c.gray_4)
 Group.new("ModeMsg", c.diag_warn, nil)
 Group.new("NonText", c.gray_6, nil)
-Group.new("Pmenu", c.gray_0, c.bg_lighter)
-Group.new("PmenuSel", g.hl_bg, g.hl_bg)
+Group.new("Pmenu", g.text_unselected, g.text_unselected)
+Group.new("PmenuSel", g.text_selected, g.text_selected, g.text_selected)
 Group.new("PmenuSbar", c.primary, c.gray_6)
 Group.new("PmenuThumb", c.primary, c.gray_5)
 Group.new("Question", c.gray_0, c.gray_6)
@@ -329,26 +331,6 @@ Group.new("backdrop", nil, nil)
 
 Group.new("OilDir", c.primary, nil)
 Group.new("OilDirIcon", c.text, nil)
-
--- fzf-lua
--- 2024-12-23, currently moving these to fzf-lua setup().
--- Group.new("FzfLuaFzfMatch", c.white)
--- Group.new("FzfLuaNormal", c.gray_4) -- search results
--- Group.new("FzfLuaBorder", g.border1)
--- Group.new("FzfLuaFzfInfo", c.gray_3) -- e.g,  results counter
--- Group.new("FzfLuaHeaderText", c.quart)
--- Group.new("FzfLuaHeaderBind", c.text)
--- Group.new("FzfLuaBufferName", c.primary)
--- Group.new("FzfLuaLiveSym", c.quart)
--- Group.new("FzfLuaPathLineNr", c.gray_3)
--- Group.new("FzfLuaPathColNr", c.gray_3)
--- Group.new("FzfLuaBufNr", c.quart)
--- Group.new("FzfLuaTabTitle", c.primary)
--- Group.new("FzfLuaTabMarker", c.quart)
--- Group.new("FzfLuaCursorLineNr", g.hl_bg, g.hl_bg)
--- Group.new("FzfLuaBufFlagCur", c.quart)
--- Group.new("FzfLuaBufFlagAlt", c.primary)
--- Group.new("FzfLuaBackdrop", nil, nil)
 
 -- blankline
 -- these hl g don't seem to work (2023-09-29)
