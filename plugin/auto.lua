@@ -36,9 +36,11 @@ auto({ "BufEnter" }, {
 auto({ "BufEnter" }, {
 	group = "custom",
 	callback = function()
-		vim.cmd("Cd") -- call user command
+		if vim.bo.filetype ~= "oil" then
+			vim.cmd("Cd")
+		end
 	end,
-  desc = "Cd into current file's directory."
+	desc = "Cd into current file's directory.",
 })
 
 auto({ "BufWritePost" }, {
@@ -46,14 +48,14 @@ auto({ "BufWritePost" }, {
 	callback = function()
 		require("lint").try_lint()
 	end,
-  desc = "Try to lint."
+	desc = "Try to lint.",
 })
 
 auto({ "BufWritePost" }, {
 	group = "custom",
 	pattern = "*.rem",
 	command = "! /home/tjex/.local/go/bin/lnch ~/scripts/progs/calpush.sh",
-  desc = "Push changes to .rem (calendar) file."
+	desc = "Push changes to .rem (calendar) file.",
 })
 
 -- Term --
@@ -79,4 +81,3 @@ auto({ "BufEnter" }, {
 	pattern = "*.rem",
 	command = "! ~/scripts/progs/calpull.sh",
 })
-
