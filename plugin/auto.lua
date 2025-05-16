@@ -22,11 +22,49 @@ auto({ "BufEnter", "BufNewFile" }, {
 	end,
 })
 
+-- balance splits
 auto({ "BufEnter" }, {
 	group = "custom",
 	callback = function()
 		vim.cmd(":FocusToggle")
 		vim.cmd(":FocusToggle")
+	end,
+	desc = "Balance splits.",
+})
+
+-- cd into file's directory on enter
+auto({ "BufEnter" }, {
+	group = "custom",
+	callback = function()
+		vim.cmd("Cd") -- call user command
+	end,
+  desc = "Cd into current file's directory."
+})
+
+auto({ "BufWritePost" }, {
+	group = "custom",
+	callback = function()
+		require("lint").try_lint()
+	end,
+  desc = "Try to lint."
+})
+
+auto({ "BufWritePost" }, {
+	group = "custom",
+	pattern = "*.rem",
+	command = "! /home/tjex/.local/go/bin/lnch ~/scripts/progs/calpush.sh",
+  desc = "Push changes to .rem (calendar) file."
+})
+
+-- Term --
+----------
+
+auto({ "TermOpen" }, {
+	group = "custom",
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.scrolloff = 0
 	end,
 })
 
@@ -42,27 +80,3 @@ auto({ "BufEnter" }, {
 	command = "! ~/scripts/progs/calpull.sh",
 })
 
-auto({ "BufWritePost" }, {
-	group = "custom",
-	callback = function()
-		require("lint").try_lint()
-	end,
-})
-
-auto({ "BufWritePost" }, {
-	group = "custom",
-	pattern = "*.rem",
-	command = "! /home/tjex/.local/go/bin/lnch ~/scripts/progs/calpush.sh",
-})
-
--- Term --
-----------
-
-auto({ "TermOpen" }, {
-	group = "custom",
-	callback = function()
-		vim.opt_local.number = false
-		vim.opt_local.relativenumber = false
-		vim.opt_local.scrolloff = 0
-	end,
-})
