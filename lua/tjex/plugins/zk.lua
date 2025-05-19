@@ -3,7 +3,7 @@ local tjv = require("tjex/vars")
 return {
 	"zk-org/zk-nvim",
 	-- branch = "fix/client-nil-error",
-	-- tag = "v0.3.0",
+	-- tag = "v0.4.1",
 	-- dir = "~/projects/zk-nvim",
 	-- name = "zk-local",
 
