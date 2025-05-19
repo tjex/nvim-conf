@@ -2,10 +2,11 @@ local tjv = require("tjex/vars")
 
 return {
 	"zk-org/zk-nvim",
-	-- dir = "~/zk-nvim",
+	-- branch = "fix/client-nil-error",
+	-- tag = "v0.3.0",
+	-- dir = "~/projects/zk-nvim",
 	-- name = "zk-local",
 
-	event = "BufEnter *.md",
 	config = function()
 		local tjutil = require("tjex.util")
 
@@ -85,12 +86,10 @@ return {
 			})
 		end
 
+
 		require("zk").setup({
 			picker = tjv.picker,
 
-			-- lsp config is dealt with here instead of lsp.lua because .setup()
-			-- actually communicates directly with nvim-lsp to setup the server.
-			-- trying to integrate it in mason-lsp will probably end badly.
 			lsp = {
 				config = {
 					cmd = { "zk", "lsp", "--log", "/tmp/zk-lsp.log" },
@@ -105,9 +104,9 @@ return {
 				-- automatically attach buffers in a zk notebook that match the given filetypes
 				auto_attach = {
 					enabled = true,
-					filetypes = { "markdown" },
 				},
 			},
 		})
 	end,
 }
+

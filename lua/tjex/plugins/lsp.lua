@@ -58,12 +58,12 @@ return {
 
 		local servers = {
 			"lua_ls",
-			"marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",
 			"astro",
 			"jsonls",
+			"marksman"
 		}
 
 		vim.diagnostic.config({
@@ -104,8 +104,6 @@ return {
 
 		-- Specific config overrides
 		vim.lsp.config["lua_ls"] = {
-			on_attach = lsp_attach,
-			capabilities = capabilities,
 			settings = {
 				Lua = {
 					runtime = {
@@ -120,8 +118,6 @@ return {
 		}
 
 		vim.lsp.config["stylelint_lsp"] = {
-			on_attach = lsp_attach,
-			capabilities = capabilities,
 			settings = {
 				stylelintplus = {
 					autoFixOnSave = true,
@@ -131,27 +127,22 @@ return {
 		}
 
 		vim.lsp.config["marksman"] = {
-			on_attach = lsp_attach,
-			capabilities = capabilities,
 			on_init = function(client)
-				for _, c in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
-					if c.name == "zk" then
-						vim.lsp.buf_detach_client(0, client.id)
-					end
+				-- Detach marksman if in a zk notebook
+				if vim.fs.root(0, ".zk") ~= nil then
+					vim.lsp.buf_detach_client(0, client.id)
 				end
 			end,
 		}
 
 		vim.lsp.config["ltex_plus"] = {
-			on_attach = lsp_attach,
-			capabilities = capabilities,
 			settings = {
 				ltex = {
 					disabledRules = {
 						["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
 					},
 					language = "en-AU",
-					completionEnabled = true,
+					completionEnabled = false,
 				},
 			},
 		}
