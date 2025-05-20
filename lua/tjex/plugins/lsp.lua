@@ -63,7 +63,6 @@ return {
 			"pyright",
 			"stylelint_lsp",
 			"jsonls",
-			"marksman"
 		}
 
 		vim.diagnostic.config({
@@ -96,6 +95,8 @@ return {
 
 		-- Specific config overrides
 		vim.lsp.config["lua_ls"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
 			settings = {
 				Lua = {
 					runtime = {
@@ -109,17 +110,19 @@ return {
 			},
 		}
 
-        vim.lsp.config["ts_ls"] = {
-            on_attach = lsp_attach,
-            capabilities = capabilities
-        }
+		vim.lsp.config["ts_ls"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
+		}
 
-        vim.lsp.config["jsonls"] = {
-            on_attach = lsp_attach,
-            capabilities = capabilities
-        }
+		vim.lsp.config["jsonls"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
+		}
 
 		vim.lsp.config["stylelint_lsp"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
 			settings = {
 				stylelintplus = {
 					autoFixOnSave = true,
@@ -129,6 +132,8 @@ return {
 		}
 
 		vim.lsp.config["marksman"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
 			on_init = function(client)
 				-- Detach marksman if in a zk notebook
 				if vim.fs.root(0, ".zk") ~= nil then
@@ -138,6 +143,8 @@ return {
 		}
 
 		vim.lsp.config["ltex_plus"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
 			settings = {
 				ltex = {
 					disabledRules = {

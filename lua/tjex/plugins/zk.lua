@@ -86,7 +86,6 @@ return {
 			})
 		end
 
-
 		require("zk").setup({
 			picker = tjv.picker,
 			lsp = {
@@ -108,4 +107,3 @@ return {
 		})
 	end,
 }
-

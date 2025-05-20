@@ -32,11 +32,11 @@ return {
 				end,
 			},
 			window = {
-				documentation = require("cmp").config.disable, -- disable docs popup
+				-- documentation = require("cmp").config.disable, -- disable docs popup
 				completion = require("cmp").config.window.bordered(),
-				-- documentation = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
-			performance = { max_view_entries = 10 },
+			performance = { max_view_entries = 20 },
 			mapping = cmp.mapping.preset.insert({
 				["<c-k>"] = cmp.mapping.select_prev_item(),
 				["<c-j>"] = cmp.mapping.select_next_item(),
@@ -54,10 +54,10 @@ return {
 			formatting = {
 				format = lspkind.cmp_format({
 					mode = "symbol",
-					maxwidth = 100,
+					maxwidth = 300,
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					menu = {
-						nvim_lsp = "[LSP]",
+						nvim_lsp = "[lsp]",
 						luasnip = "[snip]",
 						buffer = "[buf]",
 						path = "[path]",

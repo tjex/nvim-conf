@@ -38,5 +38,5 @@
   "urlview.nvim": { "branch": "main", "commit": "c07733179e27c225ac3c58c3951701ee10b2dbde" },
   "vim-easy-align": { "branch": "master", "commit": "9815a55dbcd817784458df7a18acacc6f82b1241" },
   "vim-fugitive": { "branch": "master", "commit": "4a745ea72fa93bb15dd077109afbb3d1809383f2" },
-  "zk-nvim": { "branch": "main", "commit": "4607d3b26b6be9897c9558c78c3cefd2f77c86ab" }
+  "zk-nvim": { "branch": "main", "commit": "08f3591d55cc73828a99019ef6545b939a88cc13" }
 }
