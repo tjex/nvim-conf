@@ -8,13 +8,14 @@ return {
 		-- "hrsh7th/cmp-nvim-lua",
 		-- "hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
 		local cmp = require("cmp")
 		local types = require("cmp.types")
-		local lspkind = require("lspkind")
+
+
 		require("cmp").setup({
 			completion = {
 				autocomplete = {
@@ -32,9 +33,13 @@ return {
 				end,
 			},
 			window = {
-				-- documentation = require("cmp").config.disable, -- disable docs popup
-				completion = require("cmp").config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+                completion = {
+                    -- border = "rounded",
+                    winhighlight = "Normal:Pmenu,FloatBorder:PmenuBorder,CursorLine:PmenuSel,Search:None",
+                },
+                documentation = {
+                    winhighlight = "Normal:Pmenu"
+                }
 			},
 			performance = { max_view_entries = 20 },
 			mapping = cmp.mapping.preset.insert({
@@ -45,35 +50,12 @@ return {
 			}),
 
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				-- { name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "nvim_lua" },
+				-- { name = "nvim_lua" },
 				{ name = "path" },
 			}),
 
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol",
-					maxwidth = 300,
-					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-					menu = {
-						nvim_lsp = "[lsp]",
-						luasnip = "[snip]",
-						buffer = "[buf]",
-						path = "[path]",
-						nvim_lua = "[api]",
-					},
-				}),
-			},
-		})
-		require("cmp").setup.filetype("markdown", {
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "path" },
-			}, {
-				{ name = "buffer" },
-			}),
 		})
 	end,
 }

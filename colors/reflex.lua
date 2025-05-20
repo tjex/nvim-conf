@@ -99,7 +99,7 @@ Group.new("MatchParen", nil, c.gray_5)
 Group.new("MoreMsg", nil, c.gray_4)
 Group.new("ModeMsg", c.diag_warn, nil)
 Group.new("NonText", c.gray_6, nil)
-Group.new("Pmenu", g.text_unselected, g.text_unselected)
+Group.new("Pmenu", g.text_unselected, c.bg_lighter)
 Group.new("PmenuSel", g.text_selected, g.text_selected, g.text_selected)
 Group.new("PmenuSbar", c.primary, c.gray_6)
 Group.new("PmenuThumb", c.primary, c.gray_5)
@@ -336,11 +336,6 @@ Group.new("OilDirIcon", c.text, nil)
 -- these hl g don't seem to work (2023-09-29)
 Group.new("IblIndent", c.gray_6, nil)
 Group.new("IblWhitespace", nil, nil)
-
--- cmp
-Group.new("CmpItemMenu", c.text)
-Group.new("CmpItemAbbrMatch", c.text)
-Group.new("CmpItemAbbr", c.gray_4)
 
 -- Todo
 Group.new("TodoSignNOTE", c.green, nil)

@@ -48,8 +48,6 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"onsails/lspkind.nvim",
-		"hrsh7th/cmp-nvim-lsp", -- required for `default_capabilities`
 	},
 
 	config = function()
@@ -85,9 +83,14 @@ return {
 		local lsp_attach = function(client, bufnr)
 			client.server_capabilities.document_formatting = true
 			lsp_keymaps(bufnr)
+            if client:supports_method("textDocument/completion") then
+                local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+                client.server_capabilities.completionProvider.triggerCharacters = chars
+                vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+            end
 		end
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Specific config overrides
 		vim.lsp.config["lua_ls"] = {
