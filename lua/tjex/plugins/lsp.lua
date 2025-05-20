@@ -23,7 +23,7 @@ local lsp_keymaps = function(bufnr)
 	key.nmap({
 		"K",
 		function()
-			vim.lsp.buf.hover({ border = "rounded" })
+			vim.lsp.buf.hover()
 		end,
 		bufopts,
 	})
@@ -87,10 +87,6 @@ return {
 			lsp_keymaps(bufnr)
 		end
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
-		})
-
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Specific config overrides
@@ -116,6 +112,11 @@ return {
 		}
 
 		vim.lsp.config["jsonls"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
+		}
+
+		vim.lsp.config["gopls"] = {
 			on_attach = lsp_attach,
 			capabilities = capabilities,
 		}

@@ -37,4 +37,4 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.laststatus = 3
 vim.opt.showmode = false
 vim.opt.showcmd = false
--- vim.opt.showtabline = 2
+vim.opt.winborder = "single"
