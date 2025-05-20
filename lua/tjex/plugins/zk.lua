@@ -89,7 +89,6 @@ return {
 
 		require("zk").setup({
 			picker = tjv.picker,
-
 			lsp = {
 				config = {
 					cmd = { "zk", "lsp", "--log", "/tmp/zk-lsp.log" },

@@ -58,10 +58,10 @@ return {
 
 		local servers = {
 			"lua_ls",
+			-- "marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",
-			"astro",
 			"jsonls",
 			"marksman"
 		}
@@ -94,14 +94,6 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		-- General config for all servers
-		for _, server in ipairs(servers) do
-			vim.lsp.config[server] = {
-				on_attach = lsp_attach,
-				capabilities = capabilities,
-			}
-		end
-
 		-- Specific config overrides
 		vim.lsp.config["lua_ls"] = {
 			settings = {
@@ -116,6 +108,16 @@ return {
 				},
 			},
 		}
+
+        vim.lsp.config["ts_ls"] = {
+            on_attach = lsp_attach,
+            capabilities = capabilities
+        }
+
+        vim.lsp.config["jsonls"] = {
+            on_attach = lsp_attach,
+            capabilities = capabilities
+        }
 
 		vim.lsp.config["stylelint_lsp"] = {
 			settings = {
