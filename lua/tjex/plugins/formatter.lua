@@ -13,29 +13,31 @@ return {
 			log_level = vim.log.levels.WARN,
 			filetype = {
 				-- formatters are executed in order within their own tables
-				terraform = {
-					require("formatter.filetypes.terraform").terraformfmt,
-				},
-				cpp = {
-					require("formatter.filetypes.cpp").clangformat,
-				},
+				terraform = { require("formatter.filetypes.terraform").terraformfmt },
+				cpp = { require("formatter.filetypes.cpp").clangformat },
 				-- tex = {
 				-- 	require("formatter.filetypes.tex").latexindent,
 				-- },
-				lua = {
-					require("formatter.filetypes.lua").stylua,
-				},
-				bash = {
-					require("formatter.filetypes.sh").shfmt,
-				},
-				python = {
-					require("formatter.filetypes.python").yapf,
-				},
+				lua = { require("formatter.filetypes.lua").stylua },
+				bash = { require("formatter.filetypes.sh").shfmt },
+				python = { require("formatter.filetypes.python").yapf },
 				javascript = {
-					require("formatter.filetypes.javascript").prettierd,
+					function()
+						if not vim.fs.root(0, { "eslint.config.mjs", "eslint.cconfig.js", "eslint.config.cjs" }) then
+							return require("formatter.filetypes.javascript").eslint_d
+						else
+							return require("formatter.filetypes.javascript").prettierd
+						end
+					end,
 				},
 				typescript = {
-					require("formatter.filetypes.typescript").prettierd,
+					function()
+						if not vim.fs.root(0, { "eslint.config.mjs", "eslint.cconfig.js", "eslint.config.cjs", "eslint.config.ts" }) then
+							return require("formatter.filetypes.javascript").eslint_d
+						else
+							return require("formatter.filetypes.javascript").prettierd
+						end
+					end,
 				},
 				css = {
 					function()
@@ -61,15 +63,9 @@ return {
 						}
 					end,
 				},
-				html = {
-					require("formatter.filetypes.html").prettierd,
-				},
-				json = {
-					require("formatter.filetypes.json").prettierd,
-				},
-				markdown = {
-					require("formatter.filetypes.json").prettierd,
-				},
+				html = { require("formatter.filetypes.html").prettierd },
+				json = { require("formatter.filetypes.json").prettierd },
+				markdown = { require("formatter.filetypes.json").prettierd },
 				-- Unwrap prose in markdown. Execute via `:Fmt unwrap`, see user command.
 				unwrap = {
 					function()
