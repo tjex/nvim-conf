@@ -29,8 +29,9 @@ local lsp_keymaps = function(bufnr)
 	})
 	key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
 
+	key.nmap({ "<leader>io", "<cmd>:Trouble diagnostics toggle<cr>", desc = "Open Trouble diagnostics." })
 	key.nmap({
-		"<leader>io",
+		"<leader>il",
 		function()
 			local config = vim.diagnostic.config() or {}
 			if config.virtual_lines then
