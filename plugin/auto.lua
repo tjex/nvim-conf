@@ -6,6 +6,11 @@ local augroup = vim.api.nvim_create_augroup
 
 augroup("custom", { clear = false })
 
+local function is_regular_file(bufnr)
+   bufnr = bufnr or 0
+   return vim.bo[bufnr].buftype == "" and vim.api.nvim_buf_get_name(bufnr) ~= ""
+end
+
 -- Buffers --
 --------------
 
@@ -30,23 +35,6 @@ auto({ "BufEnter" }, {
       vim.cmd(":FocusToggle")
    end,
    desc = "Balance splits.",
-})
-
-local function is_regular_file(bufnr)
-   bufnr = bufnr or 0
-   return vim.bo[bufnr].buftype == "" and vim.api.nvim_buf_get_name(bufnr) ~= ""
-end
-
--- cd into file's directory on enter
-auto({ "BufEnter" }, {
-   group = "custom",
-   callback = function(buffer)
-      -- why doesn't this work for oil buffers as well?...
-      if is_regular_file(buffer.buf) == true and vim.bo.filetype ~= "oil" then
-         vim.cmd("Cd")
-      end
-   end,
-   desc = "Cd into current file's directory.",
 })
 
 auto({ "BufWritePost" }, {
