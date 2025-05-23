@@ -31,9 +31,10 @@ auto({ "BufEnter" }, {
 	group = "custom",
 	callback = function()
 		local root = vim.fs.root(0, { ".git", ".zk" })
-		if root ~= "" then
-			vim.cmd(":cd " .. root)
+		if root == nil then
+			return
 		end
+		vim.cmd(":cd " .. root)
 	end,
 	desc = "Cd to root of git repo.",
 })
