@@ -111,6 +111,11 @@ return {
 			capabilities = capabilities,
 		}
 
+		vim.lsp.config["pyright"] = {
+			on_attach = lsp_attach,
+			capabilities = capabilities,
+		}
+
 		vim.lsp.config["jsonls"] = {
 			on_attach = lsp_attach,
 			capabilities = capabilities,

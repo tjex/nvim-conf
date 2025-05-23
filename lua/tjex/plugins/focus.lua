@@ -4,7 +4,7 @@ return {
 	version = "*",
 	init = function()
 		key.nmap({
-			"<C-c>",
+			"<C-b>",
 			function()
 				-- Create balance splits if there's only one window, otherwise
 				-- close empty buffers. Effectively a toggle with a saftey net.

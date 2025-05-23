@@ -10,7 +10,7 @@ key.imap({ "KJ", "<ESC><Right>" })
 key.imap({ "<c-l>", "<Nop>" }) -- used for cmp
 
 -- file operations
-key.nmap({ "<leader>cd", ":cd %:h<CR>" })
+key.nmap({ "<leader>c", ":Cd<cr>" })
 key.nmap({ "<leader>w", ":w<cr>" })
 
 -- text operations
