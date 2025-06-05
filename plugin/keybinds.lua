@@ -29,8 +29,8 @@ key.nmap({ "j", "gj" }) -- cursor down inline
 key.nmap({ "k", "gk" }) -- cursor up inline
 key.vmap({ "J", ":m '>+1<CR>gv=gv" }) -- move selected visual lines down
 key.vmap({ "K", ":m '<-2<CR>gv=gv" }) -- move selected visual lines up
-key.nmap({ "<C-d>", "10jzz" }) -- keep cursor in middle when jumping
-key.nmap({ "<C-u>", "10kzz" }) -- keep cursor in middle when jumping
+key.nmap({ "<C-d>", "20jzz" }) -- keep cursor in middle when jumping
+key.nmap({ "<C-u>", "20kzz" }) -- keep cursor in middle when jumping
 key.nmap({ "n", "nzzzv" }) -- keep cursor in middle during search
 key.nmap({ "N", "Nzzzv" })
 key.nmap({ "`o", '`"' }) -- jump to where cursor was on file close (`" sucks to type)
