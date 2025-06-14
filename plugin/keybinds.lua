@@ -1,6 +1,9 @@
 -- neovim native editor keymaps (not plugin specific)
 local key = require("tjex.keybind")
 
+local down_screen = "20jzz"
+local up_screen = "20kzz"
+
 -- main functionality remaps
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 key.nmap({ "<ESC>", "<Nop>" })
@@ -29,8 +32,10 @@ key.nmap({ "j", "gj" }) -- cursor down inline
 key.nmap({ "k", "gk" }) -- cursor up inline
 key.vmap({ "J", ":m '>+1<CR>gv=gv" }) -- move selected visual lines down
 key.vmap({ "K", ":m '<-2<CR>gv=gv" }) -- move selected visual lines up
-key.nmap({ "<C-d>", "20jzz" }) -- keep cursor in middle when jumping
-key.nmap({ "<C-u>", "20kzz" }) -- keep cursor in middle when jumping
+key.nmap({ "<C-d>", down_screen }) -- keep cursor in middle when jumping
+key.nmap({ "<C-u>", up_screen }) -- keep cursor in middle when jumping
+key.nmap({ "<C-j>", down_screen })
+key.nmap({ "<C-k>", up_screen })
 key.nmap({ "n", "nzzzv" }) -- keep cursor in middle during search
 key.nmap({ "N", "Nzzzv" })
 key.nmap({ "`o", '`"' }) -- jump to where cursor was on file close (`" sucks to type)
@@ -47,8 +52,6 @@ vim.cmd([[
 -- tying out :FocusSplitLeft/Right in place of these.
 -- see plugins/focus.lua
 key.nmap({ "<C-h>", "<C-w>h" })
-key.nmap({ "<C-j>", "<C-w>j" })
-key.nmap({ "<C-k>", "<C-w>k" })
 key.nmap({ "<C-l>", "<C-w>l" })
 key.nmap({ "<C-w>r", "<C-w>r<C-w>h" })
 key.nmap({ "H", "<C-w>h<C-w>x<C-w>l" })
