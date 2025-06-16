@@ -66,4 +66,18 @@ return {
         })
     ),
 	s("script dir", t([[script_dir=$(dirname "$(realpath "$0")")]])),
+    -- s(
+    --     "parse named args",
+    --     fmt(
+    --         [[
+    --         while [[ "$#" -gt 0 ]]; do
+    --         case $1 in
+    --             --{}) env="$2"; shift ;;
+    --             *) echo "Unknown parameter: $1" ;;
+    --         esac
+    --         shift
+    --     done
+    --     ]],
+    --     { i(1)}
+    -- )
 }
