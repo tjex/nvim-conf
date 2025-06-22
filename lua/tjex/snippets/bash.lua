@@ -66,18 +66,38 @@ return {
         })
     ),
 	s("script dir", t([[script_dir=$(dirname "$(realpath "$0")")]])),
+        s(
+        "countdown",
+            fmt(
+            [[
+            countdown() {{
+              local seconds=$1
+              while [ $seconds -gt 0 ]; do
+                printf "\rTime left: %02d:%02d" $((seconds / 60)) $((seconds % 60))
+                sleep 1
+                ((seconds--))
+              done
+              printf "\rTime left: 00:00\n"
+              echo "Time's up!"
+            }}
+            ]],
+            {}
+        )
+    ),
     -- s(
-    --     "parse named args",
-    --     fmt(
-    --         [[
-    --         while [[ "$#" -gt 0 ]]; do
-    --         case $1 in
-    --             --{}) env="$2"; shift ;;
-    --             *) echo "Unknown parameter: $1" ;;
-    --         esac
-    --         shift
+    --   "parse named args",
+    --   fmt(
+    --     [[
+    --     while [[ "$#" -gt 0 ]]; do
+    --       case $1 in
+    --         --{}) {}="$2"; shift ;;
+    --         *) echo "Unknown parameter: $1" ;;
+    --       esac
+    --       shift
     --     done
     --     ]],
-    --     { i(1)}
+    --     { i(1, "arg"), rep(1) }
+    --   )
     -- )
+
 }
