@@ -21,24 +21,8 @@ return {
 				lua = { require("formatter.filetypes.lua").stylua },
 				bash = { require("formatter.filetypes.sh").shfmt },
 				python = { require("formatter.filetypes.python").yapf },
-				javascript = {
-					function()
-						if not vim.fs.root(0, { "eslint.config.mjs", "eslint.cconfig.js", "eslint.config.cjs" }) then
-							return require("formatter.filetypes.javascript").eslint_d
-						else
-							return require("formatter.filetypes.javascript").prettierd
-						end
-					end,
-				},
-				typescript = {
-					function()
-						if not vim.fs.root(0, { "eslint.config.mjs", "eslint.cconfig.js", "eslint.config.cjs", "eslint.config.ts" }) then
-							return require("formatter.filetypes.javascript").eslint_d
-						else
-							return require("formatter.filetypes.javascript").prettierd
-						end
-					end,
-				},
+				javascript = { require("formatter.filetypes.javascript").eslint_d },
+				typescript = { require("formatter.filetypes.javascript").eslint_d },
 				css = {
 					function()
 						return {
